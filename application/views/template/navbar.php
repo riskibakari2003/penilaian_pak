@@ -26,19 +26,19 @@
 			
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Masuk</span></a>
 			</li>
 			
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Keluar</span></a>
 			</li>
 			
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-calendar-day"></i>
 					<span>Alkon Kadaluarsa</span></a>
 			</li>
 			
@@ -50,7 +50,7 @@
 			<?php if ($session->role == 0) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-fw fa-user"></i>
                     <span>User</span></a>
             </li>
 			<?php } ?>
@@ -63,19 +63,19 @@
 			
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
+                <i class="fas fa-fw fa-book"></i>
                     <span>Data Alkon</span></a>
             </li>
 			
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-book"></i>
                     <span>Data Faskes</span></a>
             </li>
 			
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-book"></i>
                     <span>Data Suplier</span></a>
             </li>
 			<?php } ?>
@@ -89,19 +89,19 @@
 
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Masuk</span></a>
 			</li>
 
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Keluar</span></a>
 			</li>
 
 			<li class="nav-item">
 				<a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i>
+					<i class="fas fa-fw fa-calendar-day"></i>
 					<span>Alkon Kadaluarsa</span></a>
 			</li>
 			<?php } ?>
