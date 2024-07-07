@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $title; ?> || Data Alkon</title>
+    <title><?= $title; ?> || SIM DALKON</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('public/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
