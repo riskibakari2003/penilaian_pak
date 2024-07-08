@@ -7,6 +7,7 @@ class Jns_alkon extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
+		checkAkses([0,1]);
 		$this->title = "Jenis Alkon";
 		$this->session = $this->session->userdata();
 	}

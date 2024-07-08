@@ -7,6 +7,7 @@ class Laporan extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
+		checkAkses(2);
 		$this->title = "Laporan";
 		$this->session = $this->session->userdata();
 	}

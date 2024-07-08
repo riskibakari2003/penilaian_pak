@@ -7,6 +7,7 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
+		checkAkses(0);
 		$this->title = "User";
 		$this->session = $this->session->userdata();
 	}

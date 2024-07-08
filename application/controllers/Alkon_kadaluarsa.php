@@ -7,6 +7,7 @@ class Alkon_kadaluarsa extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
+		checkAkses([0,1]);
 		$this->title = "Data Alkon Kadaluarsa";
 		$this->session = $this->session->userdata();
 	}

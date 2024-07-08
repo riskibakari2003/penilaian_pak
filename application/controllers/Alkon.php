@@ -7,6 +7,7 @@ class Alkon extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
+		checkAkses([0,1]);
 		$this->title = "Alkon";
 		$this->session = $this->session->userdata();
 	}
