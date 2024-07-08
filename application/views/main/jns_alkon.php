@@ -16,33 +16,19 @@
 												<div class="text-left">
 													<h1 class="h4 text-gray-900 mb-4">New User</h1>
 												</div>
-												<form class="user" action="<?= base_url('user_proses')?>" method="POST">
+												<form class="user" action="<?= base_url('jns_alkon_proses')?>" method="POST">
 													<div class="form-group">
-														<label for="nama" class="text-gray-900">Nama User</label>
+														<label for="jns_alkon" class="text-gray-900">Jenis Alkon</label>
 														<input type="text" class="form-control form-control"
-															id="nama" name="nama" placeholder="Enter Name...">
+															id="jns_alkon" name="jns_alkon" placeholder="Jenis Alat Kontrasepsi...">
 													</div>
 													<div class="form-group">
-														<label for="username" class="text-gray-900">Username</label>
+														<label for="satuan" class="text-gray-900">Satuan</label>
 														<input type="text" class="form-control form-control"
-															id="username" name="username" placeholder="Enter Username...">
-													</div>
-													<div class="form-group">
-														<label for="role" class="text-gray-900">Role User</label>
-														<select class="form-control form-control" id="role" name="role">
-															<option value="" selected>Pilih role user</option>
-															<option value="0">Admin</option>
-															<option value="1">Petugas</option>
-															<option value="2">Pimpinan</option>
-														</select>
-													</div>
-													<div class="form-group">
-														<label for="password" class="text-gray-900">Password</label>
-														<input type="password" class="form-control form-control"
-															id="password" name="password" placeholder="Enter Password...">
+															id="satuan" name="satuan" placeholder="Jenis Alat Kontrasepsi...">
 													</div>
 													<button type="submit" class="btn btn-primary btn-user btn-block">
-														Login
+														Tambah Data
 													</button>
 												</form>
 											</div>
@@ -63,25 +49,22 @@
 											<thead>
 												<tr>
 													<th style="width: 10%;">No</th>
-													<th style="width: 40%;">Nama</th>
-													<th style="width: 30%;">Username</th>
+													<th style="width: 40%;">Jenis  Alkon</th>
+													<th style="width: 40%;">Jenis  Satuan</th>
 													<th style="width: 20%;">Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<?php $no = 1; foreach($user as $row) : ?>
+												<?php $no = 1; foreach($jenis as $row) : ?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?= $row->nama ?></td>
-													<td><?= $row->username ?></td>
+													<td><?= $row->jns_alkon ?></td>
+													<td><?= $row->satuan ?></td>
 													<td>
 														<!-- <a href="#" class="btn btn-info btn-circle btn-sm">
 															<i class="fas fa-pen"></i>
 														</a> -->
-														<a href="<?= base_url('user_reset/').urlencode($this->encryption->encrypt($row->id_user)); ?>" class="btn btn-warning btn-circle btn-sm">
-															<i class="fas fa-key"></i>
-														</a>
-														<a href="<?= base_url('user_delete/').urlencode($this->encryption->encrypt($row->id_user)); ?>" class="btn btn-danger btn-circle btn-sm">
+														<a href="<?= base_url('jns_alkon_delete/').urlencode($this->encryption->encrypt($row->id_jns_alkon)); ?>" class="btn btn-danger btn-circle btn-sm">
 															<i class="fas fa-trash"></i>
 														</a>
 													</td>
