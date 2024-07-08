@@ -65,8 +65,9 @@ $route['alkon_kadaluarsa'] = 'alkon_kadaluarsa';
 // master data 
 $route['user'] = 'user';
 $route['user_proses'] = 'user/proses';
-$route['user/(:any)'] = 'user/show/$1';
-$route['user_update/(:any)'] = 'user/update/$1';
+// $route['user/(:any)'] = 'user/show/$1';
+// $route['user_update/(:any)'] = 'user/update/$1';
+$route['user_reset/(:any)'] = 'user/reset/$1';
 $route['user_delete/(:any)'] = 'user/delete/$1';
 
 $route['jns_alkon'] = 'jns_alkon';

@@ -25,4 +25,54 @@ class User extends CI_Controller {
 		$this->load->view('main/user',$data);
 		$this->load->view('template/footer',$data);
 	}
+
+	public function proses()
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			'password' => md5($this->input->post('password')),
+			'role' => $this->input->post('role')
+		);
+		
+		$proses = $this->M_user->insert($data);
+
+		// if ($proses == true) {
+		// 	$this->session->set_flashdata('success', 'User Baru berhasil dibuat');
+		// } else {
+		// 	$this->session->set_flashdata('error', 'User Baru gagal dibuat');
+		// }
+
+		redirect('user');
+	}
+
+	public function reset($id)
+	{
+		$getid = $this->encryption->decrypt(urldecode($id));
+
+		$hasil = $this->M_user->reset($getid);
+
+		// if ($hasil == true) {
+		// 	$this->session->set_flashdata('success', 'Password berhasil direset');
+		// } else {
+		// 	$this->session->set_flashdata('error', 'Password gagal direset');
+		// }
+
+		redirect('user');
+	}
+
+	public function delete($id)
+	{
+		$getid = $this->encryption->decrypt(urldecode($id));
+
+		$delete = $this->M_user->delete($getid);
+
+		// if ($delete == true) {
+		// 	$this->session->set_flashdata('success', 'Password berhasil direset');
+		// } else {
+		// 	$this->session->set_flashdata('error', 'Password gagal direset');
+		// }
+
+		redirect('user');
+	}
 }
