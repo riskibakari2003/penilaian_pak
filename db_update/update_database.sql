@@ -7,3 +7,4 @@ alter table tbl_mst_jns_alkon
 alter table tbl_data_alkon
     drop column satuan;
 
+rename table tbl_supplier to tbl_mst_supplier;

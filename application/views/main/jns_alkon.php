@@ -3,7 +3,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">User</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Jenis - Jenis Alat Kontrasepsi</h1>
                     </div>
 					<div class="row">
 						<div class="col-md-4">
@@ -14,7 +14,7 @@
 										<div class="col-lg-12">
 											<div class="p-5">
 												<div class="text-left">
-													<h1 class="h4 text-gray-900 mb-4">New User</h1>
+													<h1 class="h4 text-gray-900 mb-4">New Jenis Alkon</h1>
 												</div>
 												<form class="user" action="<?= base_url('jns_alkon_proses')?>" method="POST">
 													<div class="form-group">
@@ -41,7 +41,7 @@
 							<!-- DataTales Example -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Data User</h6>
+									<h6 class="m-0 font-weight-bold text-primary">Data Jenis - jenis alkon</h6>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
