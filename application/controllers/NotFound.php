@@ -6,8 +6,6 @@ class NotFound extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		checkLogin();
-		checkAkses([0,1,2]);
 		$this->title = "404";
 		$this->session = $this->session->userdata();
 	}
