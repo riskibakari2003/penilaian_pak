@@ -6,6 +6,7 @@ class Faskes extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		checkLogin();
 		$this->title = "Faskes";
 		$this->session = $this->session->userdata();
 	}

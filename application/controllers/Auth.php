@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
 
 	public function index()
 	{
+		doneLogin();
 		$data['title'] = 'Login';
 		$this->load->view('auth/login',$data);
 	}

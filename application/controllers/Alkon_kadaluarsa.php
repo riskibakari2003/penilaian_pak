@@ -6,6 +6,7 @@ class Alkon_kadaluarsa extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		checkLogin();
 		$this->title = "Data Alkon Kadaluarsa";
 		$this->session = $this->session->userdata();
 	}
