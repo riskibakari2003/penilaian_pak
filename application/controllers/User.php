@@ -18,6 +18,7 @@ class User extends CI_Controller {
 	{
 		$data['title'] = $this->title;
 		$data['session'] = (object)$this->session;
+		$data['user'] = $this->M_user->get_all();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
 		$this->load->view('template/topbar',$data);

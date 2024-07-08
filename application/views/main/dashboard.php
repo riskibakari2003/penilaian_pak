@@ -69,3 +69,5 @@
                     </div>
                 </div>
                 <!-- /.container-fluid -->
+
+				<script src="<?= base_url('public/'); ?>vendor/jquery/jquery.min.js"></script>
