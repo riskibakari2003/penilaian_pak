@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Alkon_masuk extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->title = "Dashboard";
+		$this->title = "Data Alkon Masuk";
 		$this->session = array(
 			'id' => 1,
 			'username' => "Eko Hidayat",

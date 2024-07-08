@@ -49,8 +49,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'auth';
+$route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['dashboard'] = 'dashboard';
+$route['login'] = 'auth';
+$route['login_proses'] = 'auth/proses';
+
+// Data Alkon 
+$route['alkon_masuk'] = 'alkon_masuk';
+$route['alkon_keluar'] = 'alkon_keluar';
+$route['alkon_kadaluarsa'] = 'alkon_kadaluarsa';
+
+// master data 
+$route['jns_alkon'] = 'jns_alkon';
+$route['jns_alkon_proses'] = 'jns_alkon/proses';
+$route['jns_alkon/(:any)'] = 'jns_alkon/show/$1';
+$route['jns_alkon_update/(:any)'] = 'jns_alkon/update/$1';
+$route['jns_alkon_delete/(:any)'] = 'jns_alkon/delete/$1';
+
+$route['alkon'] = 'alkon';
+$route['alkon_proses'] = 'alkon/proses';
+$route['alkon_show/(:any)'] = 'alkon/show/$1';
+$route['alkon_update/(:any)'] = 'alkon/update/$1';
+$route['alkon_delete/(:any)'] = 'alkon/delete/$1';
+
+$route['faskes'] = 'faskes';
+$route['faskes_proses'] = 'faskes/proses';
+$route['faskes_show/(:any)'] = 'faskes/show/$1';
+$route['faskes_update/(:any)'] = 'faskes/update/$1';
+$route['faskes_delete/(:any)'] = 'faskes/delete/$1';
+
+$route['supplier'] = 'supplier';
+$route['supplier_proses'] = 'supplier/proses';
+$route['supplier_show/(:any)'] = 'supplier/show/$1';
+$route['supplier_update/(:any)'] = 'supplier/update/$1';
+$route['supplier_delete/(:any)'] = 'supplier/delete/$1';
+
+// Laporan Data Alkon 
+$route['laporan_masuk'] = 'laporan/masuk';
+$route['laporan_masuk_export'] = 'laporan/masuk_export';
+
+$route['laporan_keluar'] = 'laporan/keluar';
+$route['laporan_keluar_export'] = 'laporan/keluar_export';
+
+$route['laporan_kadaluarsa'] = 'laporan/kadaluarsa';
+$route['laporan_kadaluarsa_export'] = 'laporan/kadaluarsa_export';

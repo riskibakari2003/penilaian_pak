@@ -25,19 +25,19 @@
             </div>
 			
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('alkon_masuk') ?>">
                 <i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Masuk</span></a>
 			</li>
 			
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('alkon_keluar') ?>">
 					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Keluar</span></a>
 			</li>
 			
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('alkon_kadaluarsa') ?>">
                 <i class="fas fa-fw fa-calendar-day"></i>
 					<span>Alkon Kadaluarsa</span></a>
 			</li>
@@ -49,34 +49,34 @@
             </div>
 			<?php if ($session->role == 0) { ?>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('user') ?>">
                 <i class="fas fa-fw fa-user"></i>
                     <span>User</span></a>
             </li>
 			<?php } ?>
 			
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('jns_alkon') ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jenis Alkon</span></a>
             </li>
 			
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('alkon') ?>">
                 <i class="fas fa-fw fa-book"></i>
                     <span>Data Alkon</span></a>
             </li>
 			
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('faskes') ?>">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Data Faskes</span></a>
             </li>
 			
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('supplier') ?>">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Data Suplier</span></a>
+                    <span>Data Supplier</span></a>
             </li>
 			<?php } ?>
 			
@@ -88,19 +88,19 @@
 			</div>
 
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('laporan_masuk') ?>">
 					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Masuk</span></a>
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('laporan_keluar') ?>">
 					<i class="fas fa-fw fa-pills"></i>
 					<span>Alkon Keluar</span></a>
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="tables.html">
+				<a class="nav-link" href="<?= base_url('laporan_kadaluarsa') ?>">
 					<i class="fas fa-fw fa-calendar-day"></i>
 					<span>Alkon Kadaluarsa</span></a>
 			</li>
