@@ -7,11 +7,7 @@ class Laporan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->title = "Laporan";
-		$this->session = array(
-			'id' => 1,
-			'username' => "Eko Hidayat",
-			'role' => 2
-		);
+		$this->session = $this->session->userdata();
 	}
 
 	public function masuk()

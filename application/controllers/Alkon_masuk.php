@@ -7,11 +7,7 @@ class Alkon_masuk extends CI_Controller {
 	{
 		parent::__construct();
 		$this->title = "Data Alkon Masuk";
-		$this->session = array(
-			'id' => 1,
-			'username' => "Eko Hidayat",
-			'role' => 0
-		);
+		$this->session = $this->session->userdata();
 	}
 
 	public function index()
