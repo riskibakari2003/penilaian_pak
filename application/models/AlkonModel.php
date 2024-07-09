@@ -26,6 +26,19 @@ class AlkonModel extends CI_Model
 		return $query->result();
 	}	
 
+	public function get_alkon_kadaluarsa()
+	{
+		$query = $this->db->select('a.*, b.*, c.*,  d.*')
+						  ->from('tbl_stock_alkon a')
+						  ->from('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
+						  ->join('tbl_mst_supplier d', 'a.id_supplier = d.id_supplier', 'left')
+						  ->join('tbl_mst_jns_alkon c', 'b.id_jns_alkon = c.id_jns_alkon', 'left')
+						  ->where('status', 0)
+						  ->order_by('a.expired_date', 'desc')
+						  ->get();
+		return $query->result();
+	}
+
 	public function insert($data)
 	{
 		$this->db->insert('tbl_data_alkon', $data);
