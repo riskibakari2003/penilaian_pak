@@ -60,3 +60,21 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+alter table tbl_stock_alkon
+    add no_batch varchar(255) null after id_data_alkon;
+
+alter table tbl_stock_alkon
+    add id_supplier int not null after id_data_alkon;
+
+alter table tbl_stock_alkon
+    modify id_supplier int null;
+
+alter table tbl_stock_alkon
+    modify expired_date datetime not null comment 'tanggal yang akan di jadikan patokan triger';
+
+alter table tbl_stock_alkon
+    modify entry_date date not null;
+
+alter table tbl_stock_alkon
+    modify status int default 0 not null comment '0 = expired, 1 = active, 2 = habis';

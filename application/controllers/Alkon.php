@@ -43,7 +43,8 @@ class Alkon extends CI_Controller {
 				'stock' => $stokmasuk,
 				'expired_date' => $tanggal,
 				'entry_date' => date('Y-m-d'),
-				'is_first' => 1	
+				'is_first' => 1	,
+				'status' => 1
 			);
 
 			$stokin = $this->M_alkon->insert_alkon_masuk($stok);
