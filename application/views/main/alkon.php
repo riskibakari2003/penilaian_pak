@@ -43,6 +43,11 @@
 															</div>
 														</div>
 													</div>
+													<div class="form-group">
+														<label for="expired_date" class="text-gray-900">Tanggal Kadalursa</label>
+														<input type="date" class="form-control form-control"
+															id="expired_date" name="expired_date">
+													</div>
 													<button type="submit" class="btn btn-primary btn-user btn-block">
 														Login
 													</button>
@@ -77,7 +82,7 @@
 													<td><?= $no++ ?></td>
 													<td><?= $row->nama_alkon; ?></td>
 													<td><?= $row->jns_alkon; ?></td>
-													<td><?= $row->stock_awal." ".$row->satuan; ?></td>
+													<td><?= $row->stock." ".$row->satuan; ?></td>
 													<td>
 														<a href="#" class="btn btn-info btn-circle btn-sm">
 															<i class="fas fa-pen"></i>

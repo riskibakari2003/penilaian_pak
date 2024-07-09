@@ -27,19 +27,35 @@ class Alkon extends CI_Controller {
 
 	public function proses()
 	{
+		$stokmasuk = $this->input->post('stok');
+		$tanggal = $this->input->post('expired_date');
+
 		$data = array(
 			'nama_alkon' => $this->input->post('nama'),
-			'id_jns_alkon' => $this->input->post('jns_alkon'),
-			'stock_awal' => $this->input->post('stok')
+			'id_jns_alkon' => $this->input->post('jns_alkon')
 		);
 
 		$proses = $this->M_alkon->insert($data);
 
-		// if ($proses == true) {
-		// 	$this->session->set_flashdata('success', 'User Baru berhasil dibuat');
-		// } else {
-		// 	$this->session->set_flashdata('error', 'User Baru gagal dibuat');
-		// }
+		if ($proses['status'] == true) {
+			$stok = array(
+				'id_data_alkon' => $proses['id'],
+				'stock' => $stokmasuk,
+				'expired_date' => $tanggal,
+				'entry_date' => date('Y-m-d'),
+				'is_first' => 1	
+			);
+
+			$stokin = $this->M_alkon->insert_alkon_masuk($stok);
+
+			// if ($stokin == true) {
+			// 	echo "success";
+			// } else {
+			// 	echo "error";
+			// }
+		} else {
+			echo "error";
+		}
 
 		redirect('alkon');
 	}
