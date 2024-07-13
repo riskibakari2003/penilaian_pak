@@ -22,7 +22,7 @@ class UserModel extends CI_Model
 	public function reset($id)
 	{
 		$data = array(
-			'password' => md5('Admin123')
+			'password' => md5('default123')
 		);
 
 		$this->db->where('id_user', $id);
