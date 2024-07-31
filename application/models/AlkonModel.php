@@ -6,9 +6,10 @@ class AlkonModel extends CI_Model
 	{
 		$query = $this->db->select('a.*, b.*, c.*')
 						  ->from('tbl_stock_alkon a')
-						  ->from('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
+						  ->join('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'inner')
 						  ->join('tbl_mst_jns_alkon c', 'b.id_jns_alkon = c.id_jns_alkon', 'left')
 						  ->where('a.is_first', 1)
+						  ->group_by('a.id_data_alkon')
 						  ->get();
 		return $query->result();
 	}	
@@ -17,7 +18,7 @@ class AlkonModel extends CI_Model
 	{
 		$query = $this->db->select('a.*, b.*, c.*,  d.*')
 						  ->from('tbl_stock_alkon a')
-						  ->from('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
+						  ->join('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
 						  ->join('tbl_mst_supplier d', 'a.id_supplier = d.id_supplier', 'left')
 						  ->join('tbl_mst_jns_alkon c', 'b.id_jns_alkon = c.id_jns_alkon', 'left')
 						  ->where('a.is_first', 0)
@@ -30,7 +31,7 @@ class AlkonModel extends CI_Model
 	{
 		$query = $this->db->select('a.*, b.*, c.*,  d.*')
 						  ->from('tbl_stock_alkon a')
-						  ->from('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
+						  ->join('tbl_data_alkon b', 'a.id_data_alkon = b.id_alkon', 'left')
 						  ->join('tbl_mst_supplier d', 'a.id_supplier = d.id_supplier', 'left')
 						  ->join('tbl_mst_jns_alkon c', 'b.id_jns_alkon = c.id_jns_alkon', 'left')
 						  ->where('status', 0)
