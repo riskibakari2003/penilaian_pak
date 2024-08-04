@@ -32,7 +32,7 @@
                 </li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
+										<a href="<?= base_url('biodata'); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Biodata
@@ -41,7 +41,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Dukung' ? 'active' : ''; ?>">
+										<a href="<?= base_url('data-dukung'); ?>" class="nav-link  <?= $title == 'Data Dukung' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Data Dukung
@@ -50,7 +50,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Penilaian PAK' ? 'active' : ''; ?>">
+										<a href="<?= base_url('data-pak'); ?>" class="nav-link  <?= $title == 'Data Penilaian PAK' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Data Penilaian PAK
@@ -59,7 +59,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
+										<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Cek Data
@@ -68,7 +68,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
+										<a href="<?= base_url('verifikasi'); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Data Verifikasi
@@ -76,8 +76,9 @@
 										</a>
 								</li>
 
+								<?php if($session->role == 0): ?>
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/berkas'); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Berkas Upoad
@@ -86,7 +87,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Tahun Ajaran' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/tahun-ajar'); ?>" class="nav-link  <?= $title == 'Master Tahun Ajaran' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Tahun Ajaran
@@ -95,7 +96,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data institusi' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/institusi'); ?>" class="nav-link  <?= $title == 'Master Data institusi' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Data institusi
@@ -104,7 +105,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Pangkat' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/pangkat'); ?>" class="nav-link  <?= $title == 'Master Data Pangkat' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Data Pangkat
@@ -113,7 +114,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Golongan' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/golongan'); ?>" class="nav-link  <?= $title == 'Master Data Golongan' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Data Golongan
@@ -122,7 +123,7 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Jabatan' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/jabatan'); ?>" class="nav-link  <?= $title == 'Master Data Jabatan' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Data Jabatan
@@ -131,14 +132,15 @@
 								</li>
 
 								<li class="nav-item">
-										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Provinsi' ? 'active' : ''; ?>">
+										<a href="<?= base_url('master/provinsi'); ?>" class="nav-link  <?= $title == 'Master Data Provinsi' ? 'active' : ''; ?>">
 												<i class="nav-icon fas fa-home"></i>
 												<p>
 														Master Data Provinsi
 												</p>
 										</a>
 								</li>
-
+								<?php endif; ?>
+								
                 <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
