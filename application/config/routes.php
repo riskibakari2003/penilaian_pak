@@ -100,3 +100,9 @@ $route['biodata'] = 'biodata';
 $route['biodata/update/(:any)'] = 'biodata/update/$1';
 
 // End Biodata
+
+// Data Dukung
+$route['data-dukung'] = 'data_dukung';
+$route['data-dukung/new'] = 'data_dukung/new';
+
+// End Data Dukung

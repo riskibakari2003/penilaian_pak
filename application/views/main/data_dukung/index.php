@@ -1,3 +1,6 @@
+<?php $this->load->view('template/header', ['title' => $title]); ?>
+<?php $this->load->view('template/navbar'); ?>	
+<?php $this->load->view('template/topbar', ['title' => $title]); ?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Data Dukung</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Data Dukung</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -22,49 +25,44 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-		<br>
-		<hr>
-		<div class="row">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8" style="text-align: center; display: flex; justify-content: center; align-items: center; height: 20px;">
-				<h4>SELAMAT DATANG DI APLIKASI PENILAIAN ANGKA KREDIT JABATAN</h4>
-			</div>
-			<div class="col-lg-2"></div>
-		</div>
-		<hr>
-		<br>
-		<?php if($session->role == 0 || $session->role == 2 ){ ?>
-        <div class="row">
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3><?= $dataBelumVerif ?></h3>
+        <!-- Small boxes (Stat box) -->
+				 <div class="row">
+					<div class="col-md-12">
 
-                <p>Belum Verifikasi</p>
+					<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Data Dukung</h3>
               </div>
-              <div class="icon">
-                <i class="ion ion-cros"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3><?= $dataVerif ?></h3>
+							
+								<form action="<?= base_url('data_dukung/new') ?>" method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="no_surar">No Surat Pengantar</label>
+                    <input type="text" class="form-control" id="no_surar" placeholder="No Surat" name="no_surar">
+                  </div>
+                  <div class="form-group">
+                    <label for="tgl_surat">Tanggal Surat Pengantar</label>
+                    <input type="date" class="form-control" id="tgl_surat" name="tgl_surat">
+                  </div>
+                  <?php foreach($file as $row): ?>
+                  	<div class="form-group">
+                  	    <label for="berkas_<?= $row->id_berkas_upload ?>"><?= $row->berkas_name ?> </label>
+                  	    <input type="file" class="form-control" id="berkas_<?= $row->id_berkas_upload ?>" name="berkas[<?= $row->id_berkas_upload ?>]" accept="application/pdf">
+                  	</div>
+                  <?php endforeach; ?>
 
-                <p>Sudah Verifikasi</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-check"></i>
-              </div>
+                </div>
+                <!-- /.card-body -->
+
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Upload</button>
+							</div>
+              </form>
             </div>
-          </div>
-          <!-- ./col -->
-        </div>
-		<?php } ?>
+					</div>
+				 </div>
+        <!-- /.row -->
+				 
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
@@ -72,3 +70,10 @@
     <!-- /.main content -->
   </div>
   <!-- /.content-wrapper -->
+
+<?php ob_start(); ?>
+<script>
+	
+</script>
+<?php $footer_js = ob_get_clean(); ?>
+<?php $this->load->view('template/footer', ['footer_js' => $footer_js]); ?>
