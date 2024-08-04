@@ -1,6 +1,6 @@
-<?php $this->load->view('template/header', ['title' => 'Master Berkas Upload']); ?>
+<?php $this->load->view('template/header', ['title' => $title]); ?>
 <?php $this->load->view('template/navbar'); ?>	
-<?php $this->load->view('template/topbar', ['title' => 'Master Berkas Upload']); ?>
+<?php $this->load->view('template/topbar', ['title' => $title]); ?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

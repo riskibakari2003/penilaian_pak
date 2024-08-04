@@ -65,21 +65,33 @@ $route['master/berkas/delete/(:any)'] = 'master_data/berkas_delete/$1';
 
 	// Tahun Ajaran
 $route['master/tahun-ajar'] = 'master_data/tahun_ajaran';
+$route['master/tahun-ajar/new'] = 'master_data/tahun_ajaran_new';
+$route['master/tahun-ajar/delete/(:any)'] = 'master_data/tahun_ajaran_delete/$1';
 
 	// Institusi
 $route['master/institusi'] = 'master_data/institusi';
+$route['master/institusi/new'] = 'master_data/institusi_new';
+$route['master/institusi/delete/(:any)'] = 'master_data/institusi_delete/$1';
 
 	// Pangkat 
 $route['master/pangkat'] = 'master_data/pangkat';
+$route['master/pangkat/new'] = 'master_data/pangkat_new';
+$route['master/pangkat/delete/(:any)'] = 'master_data/pangkat_delete/$1';
 
 	// Golongan 
 $route['master/golongan'] = 'master_data/golongan';
+$route['master/golongan/new'] = 'master_data/golongan_new';
+$route['master/golongan/delete/(:any)'] = 'master_data/golongan_delete/$1';
 
 	// Jabatan 
 $route['master/jabatan'] = 'master_data/jabatan';
+$route['master/jabatan/new'] = 'master_data/jabatan_new';
+$route['master/jabatan/delete/(:any)'] = 'master_data/jabatan_delete/$1';
 
 	// Provinsi 
 $route['master/provinsi'] = 'master_data/provinsi';
+$route['master/provinsi/new'] = 'master_data/provinsi_new';
+$route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';
 
 // End Master Data 
 

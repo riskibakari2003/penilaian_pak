@@ -51,13 +51,24 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Tahun Ajaran";
 		$data['tahun_ajaran'] = $this->M_masterdata->getMasterData('mst_tahun_ajaran');
-		// $data['session'] = (object)$this->session;
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/tahun_ajaran/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function tahun_ajaran_new()
+	{
+		$data = [
+			'tahun_ajaran' => $this->input->post('tahun_ajaran'),
+		];
+		$this->M_masterdata->insertMasterData('mst_tahun_ajaran', $data);
+		redirect('master/tahun-ajar');
+	}
+
+	public function tahun_ajaran_delete($id)
+	{
+		$data = array('id_tahun_ajaran' => $id);
+		$this->M_masterdata->deleteMasterData('mst_tahun_ajaran', $data);
+		redirect('master/tahun-ajar');
 	}
 
 	// End Tahun Ajaran
@@ -68,11 +79,24 @@ class Master_data extends CI_Controller {
 		$data['title'] = "Master Data Institusi";
 		$data['institusi'] = $this->M_masterdata->getMasterData('mst_institusi');
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/institusi/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function institusi_new()
+	{
+		$data = [
+			'nama_institusi' => $this->input->post('nama_institusi'),
+			'alamat_institusi' => $this->input->post('alamat_institusi'),
+		];
+		$this->M_masterdata->insertMasterData('mst_institusi', $data);
+		redirect('master/institusi');
+	}
+
+	public function institusi_delete($id)
+	{
+		$data = array('id_institusi' => $id);
+		$this->M_masterdata->deleteMasterData('mst_institusi', $data);
+		redirect('master/institusi');
 	}
 
 	// End Institusi
@@ -83,11 +107,23 @@ class Master_data extends CI_Controller {
 		$data['title'] = "Master Data Pangkat";
 		$data['pangkat'] = $this->M_masterdata->getMasterData('mst_pangkat');
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/pangkat/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function pangkat_new()
+	{
+		$data = [
+			'pangkat' => $this->input->post('pangkat'),
+		];
+		$this->M_masterdata->insertMasterData('mst_pangkat', $data);
+		redirect('master/pangkat');
+	}
+
+	public function pangkat_delete($id)
+	{
+		$data = array('id_pangkat' => $id);
+		$this->M_masterdata->deleteMasterData('mst_pangkat', $data);
+		redirect('master/pangkat');
 	}
 
 	// End Pangkat
@@ -98,11 +134,23 @@ class Master_data extends CI_Controller {
 		$data['title'] = "Master Data Golongan";
 		$data['golongan'] = $this->M_masterdata->getMasterData('mst_golongan');
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/golongan/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function golongan_new()
+	{
+		$data = [
+			'golongan' => $this->input->post('golongan'),
+		];
+		$this->M_masterdata->insertMasterData('mst_golongan', $data);
+		redirect('master/golongan');
+	}
+
+	public function golongan_delete($id)
+	{
+		$data = array('id_golongan' => $id);
+		$this->M_masterdata->deleteMasterData('mst_golongan', $data);
+		redirect('master/golongan');
 	}
 
 	// End Golongan
@@ -113,11 +161,23 @@ class Master_data extends CI_Controller {
 		$data['title'] = "Master Data Jabatan";
 		$data['jabatan'] = $this->M_masterdata->getMasterData('mst_jabatan');
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/jabatan/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function jabatan_new()
+	{
+		$data = [
+			'jabatan' => $this->input->post('jabatan'),
+		];
+		$this->M_masterdata->insertMasterData('mst_jabatan', $data);
+		redirect('master/jabatan');
+	}
+
+	public function jabatan_delete($id)
+	{
+		$data = array('id_jabatan' => $id);
+		$this->M_masterdata->deleteMasterData('mst_jabatan', $data);
+		redirect('master/jabatan');
 	}
 
 	// End Jabatan
@@ -128,11 +188,23 @@ class Master_data extends CI_Controller {
 		$data['title'] = "Master Data Provinsi";
 		$data['provinsi'] = $this->M_masterdata->getMasterData('mst_provinsi');
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
 		$this->load->view('main/masterdata/provinsi/index',$data);
-		$this->load->view('template/footer',$data);
+	}
+
+	public function provinsi_new()
+	{
+		$data = [
+			'provinsi' => $this->input->post('provinsi'),
+		];
+		$this->M_masterdata->insertMasterData('mst_provinsi', $data);
+		redirect('master/provinsi');
+	}
+
+	public function provinsi_delete($id)
+	{
+		$data = array('id_provinsi' => $id);
+		$this->M_masterdata->deleteMasterData('mst_provinsi', $data);
+		redirect('master/provinsi');
 	}
 
 	// End Provinsi
