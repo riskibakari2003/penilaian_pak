@@ -21,9 +21,10 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['dataVerif'] = $this->db->query("SELECT * FROM tbl_verif WHERE status = 1")->num_rows();	
-		$data['dataBelumVerif'] = $this->db->query("SELECT * FROM tbl_verif WHERE status = 0")->num_rows();	
+		$data['dataVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 1")->num_rows();	
+		$data['dataBelumVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 0")->num_rows();	
 		$data['title'] = $this->title;
+		// $data['session'] = (object)$this->session;
 		$data['session'] = (object)$this->session;
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);
