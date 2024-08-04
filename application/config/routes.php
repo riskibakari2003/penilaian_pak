@@ -56,3 +56,31 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth';
 $route['login_proses'] = 'auth/proses';
 $route['logout'] = 'auth/logout';
+
+// Master Data 
+	// Berkas
+$route['master/berkas'] = 'master_data/berkas';
+$route['master/berkas/new'] = 'master_data/berkas_new';
+$route['master/berkas/delete/(:any)'] = 'master_data/berkas_delete/$1';
+
+	// Tahun Ajaran
+$route['master/tahun-ajar'] = 'master_data/tahun_ajaran';
+
+	// Institusi
+$route['master/institusi'] = 'master_data/institusi';
+
+	// Pangkat 
+$route['master/pangkat'] = 'master_data/pangkat';
+
+	// Golongan 
+$route['master/golongan'] = 'master_data/golongan';
+
+	// Jabatan 
+$route['master/jabatan'] = 'master_data/jabatan';
+
+	// Provinsi 
+$route['master/provinsi'] = 'master_data/provinsi';
+
+// End Master Data 
+
+// Biodata

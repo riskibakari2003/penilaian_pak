@@ -1,3 +1,6 @@
+<?php $this->load->view('template/header', ['title' => 'Master Berkas Upload']); ?>
+<?php $this->load->view('template/navbar'); ?>	
+<?php $this->load->view('template/topbar', ['title' => 'Master Berkas Upload']); ?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Master Berkas Upload</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Master Berkas Upload</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -22,49 +25,72 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-		<br>
-		<hr>
-		<div class="row">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8" style="text-align: center; display: flex; justify-content: center; align-items: center; height: 20px;">
-				<h4>SELAMAT DATANG DI APLIKASI PENILAIAN ANGKA KREDIT JABATAN</h4>
-			</div>
-			<div class="col-lg-2"></div>
-		</div>
-		<hr>
-		<br>
-		<?php if($session->role == 0 || $session->role == 2 ){ ?>
-        <div class="row">
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3><?= $dataBelumVerif ?></h3>
+				 <div class="row">
+					<div class="col-md-5">
 
-                <p>Belum Verifikasi</p>
+					<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">New Berkas Upload</h3>
               </div>
-              <div class="icon">
-                <i class="ion ion-cros"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3><?= $dataVerif ?></h3>
+							
+              <form action="<?= base_url('master/berkas/new') ?>" method="POST">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="nama_berkas">Nama Berkas</label>
+                    <input type="text" class="form-control" id="nama_berkas" placeholder="Nama Berkas" name="nama_berkas">
+                  </div>
+                  <div class="form-group">
+                    <label for="singkatan_berkas">Nama Singkatan Berkas</label>
+                    <input type="text" class="form-control" id="singkatan_berkas" placeholder="Nama Singkatan Berkas" name="singkatan_berkas">
+                  </div>
+                  <div class="form-group">
+                    <label for="jenis_berkas">Jenis Berkas</label>
+										<select class="form-control" name="jenis_berkas" id="jenis_berkas">
+											<option value="">Pilih Jenis Berkas</option>
+											<option value="1">Data Dukung</option>
+											<option value="2">Data Penilaian PAK</option>
+										</select>
+                  </div>
+                </div>
+                <!-- /.card-body -->
 
-                <p>Sudah Verifikasi</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-check"></i>
-              </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+              </form>
             </div>
-          </div>
-          <!-- ./col -->
-        </div>
-		<?php } ?>
+					</div>
+					<div class="col-md-7">
+						<div class="card">
+							<div class="card-body">
+								<table id="berkas" class="table table-bordered table-striped">
+										<thead>
+												<tr>
+														<th>No</th>
+														<th>Nama Berkas</th>
+														<th>Singkatan</th>
+														<th>Jenis Berkas</th>
+														<th>Aksi</th>
+												</tr>
+										</thead>
+										<tbody>
+												<?php $no = 1; foreach($berkas as $row): ?>
+														<tr>
+																<td><?= $no++; ?></td>
+																<td><?= $row->berkas_name; ?></td>
+																<td><?= $row->berkas_singkatan; ?></td>
+																<td><?= $row->jenis_berkas; ?></td>
+																<td>
+																		<a href="<?= base_url('master/berkas/delete/'.$row->id_berkas_upload); ?>" class="btn btn-danger btn-sm">Hapus</a>
+																</td>
+														</tr>
+												<?php endforeach; ?>
+										</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				 </div>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
@@ -72,3 +98,16 @@
     <!-- /.main content -->
   </div>
   <!-- /.content-wrapper -->
+
+<?php ob_start(); ?>
+<script>
+    $(function () {
+        $("#berkas").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
+<?php $footer_js = ob_get_clean(); ?>
+<?php $this->load->view('template/footer', ['footer_js' => $footer_js]); ?>

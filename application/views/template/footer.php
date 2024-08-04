@@ -90,5 +90,6 @@
             });
         </script>
     <?php endif; ?>
+	<?php if (isset($footer_js)) echo $footer_js; ?>
 </body>
 </html>

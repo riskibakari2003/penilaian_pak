@@ -2,28 +2,32 @@
 
 class MasterDataModel extends CI_Model
 {
-	public function login()
-    {
-        $username = $this->input->post('username');
-        $password = MD5($this->input->post('password'));
+	public function getMasterData($table)
+	{
+		if ($table == "mst_berkas_upload") {
+			return $this->db->select('a.*, b.*')->from('mst_berkas_upload a')->join('mst_jenis_berkas b','a.id_jenis_berkas=b.id_jenis_berkas','left')->get()->result();
+		}else {
+			return $this->db->get($table)->result();
+		}
+	}
 
-        $checkuser = $this->db->where('username',$username)->get('tbl_user')->row();
+	public function getMasterDataById($table, $id)
+	{
+		return $this->db->where('id', $id)->get($table)->row();
+	}
 
-        if ($checkuser->password == $password) {
+	public function insertMasterData($table, $data)
+	{
+		$this->db->insert($table, $data);
+	}
 
-            $data = array(
-				'id' => $checkuser->id_user,
-                'username' => $checkuser->username,
-                'name' => $checkuser->nama,
-                'role' => $checkuser->role
-            );
+	public function updateMasterData($table, $data, $id)
+	{
+		$this->db->where('id', $id)->update($table, $data);
+	}
 
-            $this->session->set_userdata($data);
-
-            return true;    
-            
-        } else {
-            return false;
-        }
-    }
+	public function deleteMasterData($table, $data)
+	{
+		$this->db->where($data)->delete($table);
+	}
 }

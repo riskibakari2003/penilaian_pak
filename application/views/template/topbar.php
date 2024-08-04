@@ -31,116 +31,116 @@
                     </a>
                 </li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('biodata'); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Biodata
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('biodata'); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-user"></i>
+								<p>
+										Biodata
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('data-dukung'); ?>" class="nav-link  <?= $title == 'Data Dukung' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Data Dukung
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('data-dukung'); ?>" class="nav-link  <?= $title == 'Data Dukung' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-file"></i>
+								<p>
+										Data Dukung
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('data-pak'); ?>" class="nav-link  <?= $title == 'Data Penilaian PAK' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Data Penilaian PAK
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('data-pak'); ?>" class="nav-link  <?= $title == 'Data Penilaian PAK' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-file"></i>
+								<p>
+										Data Penilaian PAK
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Cek Data
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-book"></i>
+								<p>
+										Cek Data
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('verifikasi'); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Data Verifikasi
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('verifikasi'); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-check"></i>
+								<p>
+										Data Verifikasi
+								</p>
+						</a>
+				</li>
 
-								<?php if($session->role == 0): ?>
-								<li class="nav-item">
-										<a href="<?= base_url('master/berkas'); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Berkas Upoad
-												</p>
-										</a>
-								</li>
+				<?php if($session->role == 0): ?>
+				<li class="nav-item">
+						<a href="<?= base_url('master/berkas'); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-file"></i>
+								<p>
+										Master Berkas Upoad
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/tahun-ajar'); ?>" class="nav-link  <?= $title == 'Master Tahun Ajaran' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Tahun Ajaran
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('master/tahun-ajar'); ?>" class="nav-link  <?= $title == 'Master Tahun Ajaran' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-calendar"></i>
+								<p>
+										Master Tahun Ajaran
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/institusi'); ?>" class="nav-link  <?= $title == 'Master Data institusi' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Data institusi
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('master/institusi'); ?>" class="nav-link  <?= $title == 'Master Data institusi' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-building"></i>
+								<p>
+										Master Data institusi
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/pangkat'); ?>" class="nav-link  <?= $title == 'Master Data Pangkat' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Data Pangkat
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('master/pangkat'); ?>" class="nav-link  <?= $title == 'Master Data Pangkat' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-star"></i>
+								<p>
+										Master Data Pangkat
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/golongan'); ?>" class="nav-link  <?= $title == 'Master Data Golongan' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Data Golongan
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('master/golongan'); ?>" class="nav-link  <?= $title == 'Master Data Golongan' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-users"></i>
+								<p>
+										Master Data Golongan
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/jabatan'); ?>" class="nav-link  <?= $title == 'Master Data Jabatan' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Data Jabatan
-												</p>
-										</a>
-								</li>
+				<li class="nav-item">
+						<a href="<?= base_url('master/jabatan'); ?>" class="nav-link  <?= $title == 'Master Data Jabatan' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-map-pin"></i>
+								<p>
+										Master Data Jabatan
+								</p>
+						</a>
+				</li>
 
-								<li class="nav-item">
-										<a href="<?= base_url('master/provinsi'); ?>" class="nav-link  <?= $title == 'Master Data Provinsi' ? 'active' : ''; ?>">
-												<i class="nav-icon fas fa-home"></i>
-												<p>
-														Master Data Provinsi
-												</p>
-										</a>
-								</li>
-								<?php endif; ?>
-								
+				<li class="nav-item">
+						<a href="<?= base_url('master/provinsi'); ?>" class="nav-link  <?= $title == 'Master Data Provinsi' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-map"></i>
+								<p>
+										Master Data Provinsi
+								</p>
+						</a>
+				</li>
+				<?php endif; ?>
+				
                 <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
