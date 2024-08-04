@@ -8,7 +8,7 @@ class Biodata extends CI_Controller {
 		parent::__construct();
 		// checkLogin();
 		// checkAkses([0,1,2]);
-		$this->title = "Dashboard";
+		$this->title = "Biodata";
 		// $this->session = $this->session->userdata();
 		$this->session = array(
 			'id' => 1,
@@ -20,16 +20,33 @@ class Biodata extends CI_Controller {
 	}
 
 	public function index()
-	{
-		$data['dataVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 1")->num_rows();	
-		$data['dataBelumVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 0")->num_rows();	
+	{	
 		$data['title'] = $this->title;
-		// $data['session'] = (object)$this->session;
 		$data['session'] = (object)$this->session;
-		$this->load->view('template/header',$data);
-		$this->load->view('template/navbar',$data);
-		$this->load->view('template/topbar',$data);
-		$this->load->view('main/dashboard',$data);
-		$this->load->view('template/footer',$data);
+		$data['provinsi'] = $this->M_masterdata->getMasterData('mst_provinsi');
+		$data['pangkat'] = $this->M_masterdata->getMasterData('mst_pangkat');
+		$data['golongan'] = $this->M_masterdata->getMasterData('mst_golongan');
+		$data['institusi'] = $this->M_masterdata->getMasterData('mst_institusi');
+		$data['jabatan'] = $this->M_masterdata->getMasterData('mst_jabatan');
+		$data['biodata'] = $this->db->where('nik',$this->session['nik'])->get('tbl_biodata')->row();
+		$this->load->view('main/biodata/index',$data);
+	}
+
+	public function update($nik)
+	{
+		$data = [
+			'nama' => $this->input->post('nama'),
+			'nip_nidn' => $this->input->post('nip_nidn'),
+			'email' => $this->input->post('email'),
+			'no_telp' => $this->input->post('no_telfon'),
+			'id_provinsi' => $this->input->post('provinsi'),
+			'id_pangkat' => $this->input->post('pangkat'),
+			'id_golongan' => $this->input->post('golongan'),
+			'id_jabatan_fungsional' => $this->input->post('jabfung_terakhir'),
+			'id_jabatan_usulan' => $this->input->post('jabatan_usulan'),
+			'id_institusi' => $this->input->post('institusi')
+		];
+		$this->db->where('nik',$nik)->update('tbl_biodata',$data);
+		redirect('biodata');
 	}
 }

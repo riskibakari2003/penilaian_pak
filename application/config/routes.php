@@ -96,3 +96,7 @@ $route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';
 // End Master Data 
 
 // Biodata
+$route['biodata'] = 'biodata';
+$route['biodata/update/(:any)'] = 'biodata/update/$1';
+
+// End Biodata
