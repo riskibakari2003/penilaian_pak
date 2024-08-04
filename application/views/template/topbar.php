@@ -23,13 +23,122 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="<?= base_url(); ?>" class="nav-link active">
+                    <a href="<?= base_url(); ?>" class="nav-link <?= $title == 'Dashboard' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Biodata
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Dukung' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Data Dukung
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Penilaian PAK' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Data Penilaian PAK
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Cek Data
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Data Verifikasi
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Berkas Upoad
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Tahun Ajaran' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Tahun Ajaran
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data institusi' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Data institusi
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Pangkat' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Data Pangkat
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Golongan' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Data Golongan
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Jabatan' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Data Jabatan
+												</p>
+										</a>
+								</li>
+
+								<li class="nav-item">
+										<a href="<?= base_url(); ?>" class="nav-link  <?= $title == 'Master Data Provinsi' ? 'active' : ''; ?>">
+												<i class="nav-icon fas fa-home"></i>
+												<p>
+														Master Data Provinsi
+												</p>
+										</a>
+								</li>
+
                 <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
