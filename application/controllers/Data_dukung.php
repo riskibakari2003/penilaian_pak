@@ -61,21 +61,14 @@ class Data_dukung extends CI_Controller {
 		
 		$upload_path = './uploads/' . $nik . '/DD/' . $id_pendukung . '/';
         if (!is_dir($upload_path)) {
-            if (mkdir($upload_path, 0755, true)) {
-                log_message('debug', 'Folder created: ' . $upload_path);
-            } else {
-                log_message('error', 'Failed to create folder: ' . $upload_path);
-                show_error('Failed to create folder for uploads.');
-                return;
-            }
-        } else {
-            log_message('debug', 'Folder already exists: ' . $upload_path);
+            mkdir($upload_path, 0777, true);
+            chown($upload_path, 'nceko');
+            chgrp($upload_path, 'nceko');
         }
 
 		$files = $_FILES['berkas'];
 		foreach ($files['name'] as $id_berkas_upload => $file_name) {
 			if (!empty($file_name)) {
-				// Get berkas_singkatan from mst_berkas_upload
 				$this->db->select('berkas_singkatan');
 				$this->db->where('id_berkas_upload', $id_berkas_upload);
 				$berkas = $this->db->get('mst_berkas_upload')->row();
@@ -102,21 +95,18 @@ class Data_dukung extends CI_Controller {
 					$berkas_data = [
 						'Id_pendukung_or_pak' => $id_pendukung,
 						'nama_berkas' => $upload_data['file_name'],
-						'id_jenis_berkas' => 1, // Ubah sesuai kebutuhan
+						'id_jenis_berkas' => 1, 
 						'status_berkas' => 0,
 						'catatam' => ''
 					];
 					$this->db->insert('tbl_berkas', $berkas_data);
 				} else {
-					// Handle upload error
 					$error = $this->upload->display_errors();
-					// Set flashdata or log error
 				}
 			}
 		}
-
-		// Redirect or set flashdata for success
-		redirect('data_dukung/index');
+		
+		redirect('data-pak');
 	}
 
 }

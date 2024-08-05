@@ -106,3 +106,9 @@ $route['data-dukung'] = 'data_dukung';
 $route['data-dukung/new'] = 'data_dukung/new';
 
 // End Data Dukung
+
+// Data PAK
+$route['data-pak'] = 'data_pak';
+$route['data-pak/new'] = 'data_pak/new';
+
+// End Data PAK
