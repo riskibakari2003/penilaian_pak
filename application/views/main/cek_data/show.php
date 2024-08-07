@@ -34,12 +34,14 @@
 							<button id="btnSelesai" onclick="tblSelesai()" class="btn btn-secondary">Berkas PAK</button>
 						</div>
 					</div>
-					<?php if ($penilaian->verifikasi->status == 0) : ?>
-					<div class="col-md-2">
-						<div class="btn-container">
-						<a href="<?= base_url('cek-data/verifikasi/'.$penilaian->verifikasi->id_verifikasi_detail) ?>" class="btn btn-info" style="width:250px;">Verifikasi</a>
-						</div>
-					</div>
+					<?php if ($session->role != 1) : ?>
+						<?php if ($penilaian->verifikasi->status == 0) : ?>
+							<div class="col-md-2">
+								<div class="btn-container">
+								<a href="<?= base_url('cek-data/verifikasi/'.$penilaian->verifikasi->id_verifikasi_detail) ?>" class="btn btn-info" style="width:250px;">Verifikasi</a>
+								</div>
+							</div>
+						<?php endif; ?>
 					<?php endif; ?>
 				</div>
 
