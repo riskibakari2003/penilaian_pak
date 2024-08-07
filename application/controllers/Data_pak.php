@@ -32,30 +32,27 @@ class Data_pak extends CI_Controller {
         $this->load->library('upload');
         
         $nik = $this->session['nik'];
-        
-        // Cek apakah ada verifikasi berstatus 0
+		
         $verifikasi = $this->db->where('nik', $nik)->where('status', 0)->get('tbl_verifikasi')->row();
         if (!$verifikasi) {
-            // Set flashdata atau pesan error bahwa user belum melakukan upload data dukung
             redirect('data_pak/index');
         }
-
-        // Cek apakah ada id_data_pendukung di tbl_verifikasi_detail
+		
         $verifikasi_detail = $this->db->where('id_verifikasi_detail', $verifikasi->id_verifikasi)->get('tbl_verifikasi_detail')->row();
         if (!$verifikasi_detail || !$verifikasi_detail->id_data_pendukung) {
-            // Set flashdata atau pesan error bahwa user belum melakukan upload data dukung
+			
             redirect('data_pak/index');
         }
-
-        // Buat id_data_pak
+		
         $this->db->select('id_verifikasi_detail');
         $this->db->order_by('id_verifikasi_detail', 'DESC');
         $this->db->limit(1);
         $last_detail = $this->db->get('tbl_verifikasi_detail')->row();
         $new_id = $last_detail ? intval(substr($last_detail->id_verifikasi_detail, 0, 3)) + 1 : 1;
         $id_data_pak = sprintf('%03dDPAK%s', $new_id, $nik);
-
-        // Buat folder untuk user
+		
+		$this->db->update('tbl_verifikasi_detail', ['id_data_pak' => $id_data_pak], ['id_verifikasi_detail' => $verifikasi->id_verifikasi]);
+		
         $upload_path = './uploads/' . $nik . '/DPAK/' . $id_data_pak . '/';
         if (!is_dir($upload_path)) {
             mkdir($upload_path, 0777, true);

@@ -93,6 +93,11 @@ $route['master/provinsi'] = 'master_data/provinsi';
 $route['master/provinsi/new'] = 'master_data/provinsi_new';
 $route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';
 
+	//user
+$route['master/user'] = 'master_data/provinsi';
+$route['master/user/new'] = 'master_data/provinsi_new';
+$route['master/user/delete/(:any)'] = 'master_data/provinsi_delete/$1';
+
 // End Master Data 
 
 // Biodata
@@ -112,3 +117,9 @@ $route['data-pak'] = 'data_pak';
 $route['data-pak/new'] = 'data_pak/new';
 
 // End Data PAK
+
+// Cek PAK
+$route['cek-data'] = 'cek_data';
+$route['cek-data/(:any)'] = 'cek_data/show/$1';
+
+// End Cek PAK

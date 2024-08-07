@@ -31,6 +31,7 @@
                     </a>
                 </li>
 
+				<?php if ($session->role != 2 && $session->role != 0) : ?>
 				<li class="nav-item">
 						<a href="<?= base_url('biodata'); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
 								<i class="nav-icon fas fa-user"></i>
@@ -57,26 +58,28 @@
 								</p>
 						</a>
 				</li>
+				<?php endif; ?>
 
 				<li class="nav-item">
-						<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == 'Cek Data' ? 'active' : ''; ?>">
-								<i class="nav-icon fas fa-book"></i>
+						<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == ($session->role == 1 ? 'Cek Data' : 'Verifikasi Berkas') ? 'active' : ''; ?>">
+								<i class="nav-icon fas <?= $session->role == 1 ? 'fa-book' : 'fa-check'; ?>"></i>
 								<p>
-										Cek Data
-								</p>
-						</a>
-				</li>
-
-				<li class="nav-item">
-						<a href="<?= base_url('verifikasi'); ?>" class="nav-link  <?= $title == 'Data Verifikasi' ? 'active' : ''; ?>">
-								<i class="nav-icon fas fa-check"></i>
-								<p>
-										Data Verifikasi
+									<?= $session->role == 1 ? "Cek Data" : "Verifikasi Berkas"; ?>
 								</p>
 						</a>
 				</li>
 
 				<?php if($session->role == 0): ?>
+
+				<li class="nav-item">
+						<a href="<?= base_url('master/user'); ?>" class="nav-link  <?= $title == 'User Management' ? 'active' : ''; ?>">
+								<i class="nav-icon fas fa-user"></i>
+								<p>
+										User Management
+								</p>
+						</a>
+				</li>
+
 				<li class="nav-item">
 						<a href="<?= base_url('master/berkas'); ?>" class="nav-link  <?= $title == 'Master Berkas Upoad' ? 'active' : ''; ?>">
 								<i class="nav-icon fas fa-file"></i>

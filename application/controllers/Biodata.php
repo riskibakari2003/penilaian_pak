@@ -28,6 +28,7 @@ class Biodata extends CI_Controller {
 		$data['golongan'] = $this->M_masterdata->getMasterData('mst_golongan');
 		$data['institusi'] = $this->M_masterdata->getMasterData('mst_institusi');
 		$data['jabatan'] = $this->M_masterdata->getMasterData('mst_jabatan');
+		$data['tahun_ajaran'] = $this->M_masterdata->getMasterData('mst_tahun_ajaran');
 		$data['biodata'] = $this->db->where('nik',$this->session['nik'])->get('tbl_biodata')->row();
 		$this->load->view('main/biodata/index',$data);
 	}
@@ -44,9 +45,10 @@ class Biodata extends CI_Controller {
 			'id_golongan' => $this->input->post('golongan'),
 			'id_jabatan_fungsional' => $this->input->post('jabfung_terakhir'),
 			'id_jabatan_usulan' => $this->input->post('jabatan_usulan'),
-			'id_institusi' => $this->input->post('institusi')
+			'id_institusi' => $this->input->post('institusi'),
+			'id_tahun_ajaran' => $this->input->post('tahun_ajaran')
 		];
 		$this->db->where('nik',$nik)->update('tbl_biodata',$data);
-		redirect('biodata');
+		redirect('data-dukung');
 	}
 }

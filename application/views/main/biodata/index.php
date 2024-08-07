@@ -118,6 +118,15 @@
 											<?php endforeach; ?>
 										</select>
                   </div>
+                  <div class="form-group">
+                    <label for="tahun_ajaran">Tahun Ajar</label>
+										<select class="form-control" name="tahun_ajaran" id="tahun_ajaran">
+											<option value="">Pilih Tahun Ajar</option>
+											<?php foreach($tahun_ajaran as $row): ?>
+												<option value="<?= $row->id_tahun_ajaran ?>" <?= isset($biodata->id_tahun_ajaran) && $biodata->id_tahun_ajaran == $row->id_tahun_ajaran ? 'selected' : '' ?>><?= $row->tahun_ajaran ?></option>
+											<?php endforeach; ?>
+										</select>
+                  </div>
 							</div>
 							<!-- /.card-body -->
 
