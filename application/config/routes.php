@@ -97,9 +97,8 @@ $route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';
 
 	//user
 $route['master/user'] = 'master_data/user';
-$route['master/user/show-nik'] = 'master_data/user_show';
 $route['master/user/update'] = 'master_data/user_update';
-$route['master/user/update-password'] = 'master_data/user_password';
+$route['master/user/update-password/(:any)'] = 'master_data/user_password/$1';
 $route['master/user/delete/(:any)'] = 'master_data/user_delete/$1';
 
 // End Master Data 

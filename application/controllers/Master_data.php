@@ -201,4 +201,44 @@ class Master_data extends CI_Controller {
 	}
 
 	// End Provinsi
+
+	// User
+	public function user()
+	{
+		$data['title'] = "Master Data User";
+		$data['user'] = $this->M_masterdata->getUser();
+		$data['session'] = (object)$this->session;
+		$this->load->view('main/masterdata/user/index',$data);
+	}
+
+	public function user_update()
+	{
+		$nik = $this->input->post('old_nik');
+		
+		$data = [
+			'nik' => $this->input->post('new_nik')
+		];
+
+		$this->M_masterdata->updateUser($nik, $data);
+		redirect('master/user');
+	}
+
+	public function user_password($nik)
+	{
+		$data = [
+			'password' => MD5($this->input->post('Default123'))
+		];
+
+		$this->M_masterdata->updatePassword($nik, $data);
+		redirect('master/user');
+	}
+
+	public function user_delete($nik)
+	{
+		$data = array('nik' => $nik);
+		$this->M_masterdata->deleteUserData($data);
+		redirect('master/user');
+	}
+
+	// End User
 }

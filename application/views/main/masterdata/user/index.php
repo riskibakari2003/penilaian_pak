@@ -26,46 +26,30 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
 				 <div class="row">
-					<div class="col-md-5">
-
-					<div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">New Tahun Ajaran</h3>
-              </div>
-							
-              <form action="<?= base_url('master/tahun-ajar/new') ?>" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="tahun_ajaran">Tahun Ajaran</label>
-                    <input type="text" class="form-control" id="tahun_ajaran" placeholder="Tahun Ajaran" name="tahun_ajaran">
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Tambah</button>
-                </div>
-              </form>
-            </div>
-					</div>
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<div class="card">
 							<div class="card-body">
 								<table id="tbltahun" class="table table-bordered table-striped">
 										<thead>
 												<tr>
 														<th>No</th>
-														<th>Tahun Ajaran</th>
+														<th>Username</th>
+														<th>Nama</th>
+														<th>NIK</th>
 														<th>Aksi</th>
 												</tr>
 										</thead>
 										<tbody>
-												<?php $no = 1; foreach($tahun_ajaran as $row): ?>
+												<?php $no = 1; foreach($user as $row): ?>
 														<tr>
 																<td><?= $no++; ?></td>
-																<td><?= $row->tahun_ajaran; ?></td>
+																<td><?= $row->username; ?></td>
+																<td><?= $row->nama; ?></td>
+																<td><?= $row->nik; ?></td>
 																<td>
-																		<a href="<?= base_url('master/tahun-ajar/delete/'.$row->id_tahun_ajaran); ?>" class="btn btn-danger btn-sm">Hapus</a>
+																		<a href="<?= base_url('master/user/update-password/'.$row->nik); ?>" class="btn btn-warning btn-sm">Reset Password</a>
+																		<button class="btn btn-warning btn-sm btn-update-nik" data-nik="<?= $row->nik; ?>">Update NIK</button>
+																		<a href="<?= base_url('master/user/delete/'.$row->nik); ?>" class="btn btn-danger btn-sm">Hapus</a>
 																</td>
 														</tr>
 												<?php endforeach; ?>
@@ -83,6 +67,34 @@
   </div>
   <!-- /.content-wrapper -->
 
+	<div class="modal fade" id="updateNikModal" tabindex="-1" aria-labelledby="updateNikModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+					<div class="modal-content">
+							<div class="modal-header">
+									<h5 class="modal-title" id="updateNikModalLabel">Update NIK</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+									</button>
+							</div>
+							<form action="<?= base_url() ?>" method="POST">
+								<div class="modal-body">
+												<div class="form-group">
+														<label for="old_nik">NIK Lama</label>
+														<input type="text" class="form-control" id="old_nik" name="old_nik" readonly>
+												</div>
+												<div class="form-group">
+														<label for="new_nik">NIK Baru</label>
+														<input type="text" class="form-control" id="new_nik" name="new_nik" >
+												</div>
+								</div>
+								<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-info">Update</button>
+								</div>
+							</form>
+					</div>
+			</div>
+	</div>
 <?php ob_start(); ?>
 <script>
     $(function () {
@@ -91,6 +103,14 @@
             "lengthChange": false,
             "autoWidth": false,
         }).buttons().container().appendTo('#tbltahun_wrapper .col-md-6:eq(0)');
+    });
+
+		$('.btn-update-nik').on('click', function() {
+        var nik = $(this).data('nik');
+
+        $('#updateNikModal #old_nik').val(nik);
+
+        $('#updateNikModal').modal('show');
     });
 </script>
 <?php $footer_js = ob_get_clean(); ?>
