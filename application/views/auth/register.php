@@ -77,6 +77,8 @@
           <!-- /.col -->
         </div>
       </form>
+
+			<p>Sudah Memiliki Akun? <a href="<?= base_url('auth') ?>" class="text-center">Masuk</a></p>
     </div>
     <!-- /.card-body -->
   </div>

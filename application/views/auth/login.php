@@ -54,6 +54,8 @@
           <!-- /.col -->
         </div>
       </form>
+
+			<p>Belum Memiliki Akun? <a href="<?= base_url('register') ?>" class="text-center">Daftar</a></p>
     </div>
     <!-- /.card-body -->
   </div>
