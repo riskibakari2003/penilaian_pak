@@ -7,7 +7,8 @@ class Data_dukung extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
-		// checkAkses([0,1,2]);
+		checkEmptyBiodata($this->session->userdata('nik'));
+		checkAkses(1);
 		$this->title = "Data Dukung";
 		$this->session = $this->session->userdata();
 	}

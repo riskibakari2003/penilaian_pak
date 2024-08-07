@@ -7,7 +7,7 @@ class Biodata extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
-		// checkAkses([0,1,2]);
+		checkAkses(1);
 		$this->title = "Biodata";
 		$this->session = $this->session->userdata();
 	}

@@ -7,7 +7,7 @@ class Master_data extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
-		// checkAkses([0,1,2]);
+		checkAkses(0);
 		$this->session = $this->session->userdata();
 	}
 

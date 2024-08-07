@@ -7,7 +7,7 @@ class Cek_data extends CI_Controller {
 	{
 		parent::__construct();
 		checkLogin();
-		// checkAkses([0,1,2]);
+		checkAkses([0,1,2]);
 		$this->title_one = "Cek Data";
 		$this->title_two = "Verifikasi Berkas";
 		$this->session = $this->session->userdata();
@@ -16,6 +16,7 @@ class Cek_data extends CI_Controller {
 	public function index()
 	{
 		if ($this->session['role'] == 1) {
+			checkEmptyBiodata($this->session['nik']);
 			$data['title'] = $this->title_one;
 			$data['penilaian'] = $this->M_penilaian->getDataPenilaianByNik($this->session['nik']);
 		} else {
