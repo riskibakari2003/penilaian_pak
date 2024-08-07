@@ -226,7 +226,7 @@ class Master_data extends CI_Controller {
 	public function user_password($nik)
 	{
 		$data = [
-			'password' => MD5($this->input->post('Default123'))
+			'password' => MD5('Default123')
 		];
 
 		$this->M_masterdata->updatePassword($nik, $data);

@@ -36,6 +36,7 @@
 														<th>Username</th>
 														<th>Nama</th>
 														<th>NIK</th>
+														<th>Akses Akun</th>
 														<th>Aksi</th>
 												</tr>
 										</thead>
@@ -46,6 +47,7 @@
 																<td><?= $row->username; ?></td>
 																<td><?= $row->nama; ?></td>
 																<td><?= $row->nik; ?></td>
+																<td><?= $row->role == 1 ? "Dosen / Pengajar":"Verifikator"; ?></td>
 																<td>
 																		<a href="<?= base_url('master/user/update-password/'.$row->nik); ?>" class="btn btn-warning btn-sm">Reset Password</a>
 																		<button class="btn btn-warning btn-sm btn-update-nik" data-nik="<?= $row->nik; ?>">Update NIK</button>
@@ -76,7 +78,7 @@
 											<span aria-hidden="true">&times;</span>
 									</button>
 							</div>
-							<form action="<?= base_url() ?>" method="POST">
+							<form action="<?= base_url('master/user/update') ?>" method="POST">
 								<div class="modal-body">
 												<div class="form-group">
 														<label for="old_nik">NIK Lama</label>
