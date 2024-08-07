@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Penilaian PAK | LogIn</title>
+  <title>Penilaian PAK | Register</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,18 +22,34 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?= base_url('auth') ?>" class="h1"><b>Penilaian</b> PAK</a>
+      <a href="<?= base_url('register') ?>" class="h1"><b>Penilaian</b> PAK</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Login Untuk Memulai Sesi anda.</p>
+      <p class="login-box-msg">Daftarkan Akun Baru Anda.</p>
 
-      <form action="<?= base_url('login_proses') ?>" method="post">
+      <form action="<?= base_url('register_proses') ?>" method="post">
 
         <div class="input-group mb-3">
-          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+          <input type="text" id="nik" name="nik" class="form-control" placeholder="Nomer Induk Kependudukan" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-address-card"></span>
+            </div>
+          </div>
+        </div>
+				<div class="input-group mb-3">
+          <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-signature"></span>
+            </div>
+          </div>
+        </div>
+				<div class="input-group mb-3">
+          <input type="text" id="username" name="username" class="form-control" placeholder="username" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-at"></span>
             </div>
           </div>
         </div>
@@ -44,6 +60,13 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
+        </div>
+				<div class="input-group mb-3">
+          <select id="role" name="role" class="form-control" required>
+						<option value="">Pilih Role</option>
+						<option value="1">Dosen / Pengajar</option>
+						<option value="2">Verifikator</option>
+					</select>
         </div>
         <div class="row">
           <div class="col-8"></div>

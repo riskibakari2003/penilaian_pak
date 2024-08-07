@@ -7,7 +7,7 @@ class AuthModel extends CI_Model
         $username = $this->input->post('username');
         $password = MD5($this->input->post('password'));
 
-        $checkuser = $this->db->where('username',$username)->get('tbl_user')->row();
+        $checkuser = $this->db->select('a.*,b.*')->from('tbl_user a')->join('tbl_biodata b','a.nik = b.nik','left')->where('a.username',$username)->get()->row();
 
         if ($checkuser->password == $password) {
 
@@ -15,7 +15,8 @@ class AuthModel extends CI_Model
 				'id' => $checkuser->id_user,
                 'username' => $checkuser->username,
                 'name' => $checkuser->nama,
-                'role' => $checkuser->role
+                'role' => $checkuser->role,
+				'nik' => $checkuser->nik
             );
 
             $this->session->set_userdata($data);
@@ -26,4 +27,28 @@ class AuthModel extends CI_Model
             return false;
         }
     }
+
+	public function register()
+	{
+		$nik = $this->input->post('nik');
+		$nama = $this->input->post('name');
+
+		$data = array(
+			'username' => $this->input->post('username'),
+			'password' => MD5($this->input->post('password')),
+			'role' => $this->input->post('role'),
+			'nik' => $nik
+		);
+
+		$this->db->insert('tbl_user',$data);
+
+		$biodata = array(
+			'nik' => $nik,
+			'nama' => $nama
+		);
+
+		$this->db->insert('tbl_biodata',$biodata);
+
+		return true;
+	}
 }

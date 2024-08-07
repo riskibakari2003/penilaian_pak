@@ -54,7 +54,9 @@ $route['404_override'] = 'NotFound';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'auth';
+$route['register'] = 'auth/register';
 $route['login_proses'] = 'auth/proses';
+$route['register_proses'] = 'auth/register_proses';
 $route['logout'] = 'auth/logout';
 
 // Master Data 
@@ -94,9 +96,11 @@ $route['master/provinsi/new'] = 'master_data/provinsi_new';
 $route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';
 
 	//user
-$route['master/user'] = 'master_data/provinsi';
-$route['master/user/new'] = 'master_data/provinsi_new';
-$route['master/user/delete/(:any)'] = 'master_data/provinsi_delete/$1';
+$route['master/user'] = 'master_data/user';
+$route['master/user/show-nik'] = 'master_data/user_show';
+$route['master/user/update'] = 'master_data/user_update';
+$route['master/user/update-password'] = 'master_data/user_password';
+$route['master/user/delete/(:any)'] = 'master_data/user_delete/$1';
 
 // End Master Data 
 
@@ -121,5 +125,6 @@ $route['data-pak/new'] = 'data_pak/new';
 // Cek PAK
 $route['cek-data'] = 'cek_data';
 $route['cek-data/(:any)'] = 'cek_data/show/$1';
+$route['cek-data/verifikasi/(:any)'] = 'cek_data/verifikasi/$1';
 
 // End Cek PAK

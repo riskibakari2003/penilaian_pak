@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="<?= base_url('public/dist/img/AdminLTELogo.png') ?>" alt="Sikwan Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Sikwan</span>
+      <span class="brand-text font-weight-light">PENILAIAN PAK</span>
     </a>
 
     <!-- Sidebar -->

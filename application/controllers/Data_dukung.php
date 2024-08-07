@@ -6,23 +6,15 @@ class Data_dukung extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
+		checkLogin();
 		// checkAkses([0,1,2]);
 		$this->title = "Data Dukung";
-		// $this->session = $this->session->userdata();
-		$this->session = array(
-			'id' => 1,
-			'username' => 'admin',
-			'name' => 'Admin',
-			'role' => 0,
-			'nik' => "1234567890"
-		);
+		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		// $data['session'] = (object)$this->session;
 		$data['session'] = (object)$this->session;
 		$data['file'] = $this->db->where('id_jenis_berkas', 1)->get('mst_berkas_upload')->result();
 		$this->load->view('main/data_dukung/index',$data);
@@ -96,6 +88,7 @@ class Data_dukung extends CI_Controller {
 						'Id_pendukung_or_pak' => $id_pendukung,
 						'nama_berkas' => $upload_data['file_name'],
 						'id_jenis_berkas' => 1, 
+						'id_berkas_upload' => $id_berkas_upload,
 						'status_berkas' => 0,
 						'catatam' => ''
 					];

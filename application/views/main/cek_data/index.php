@@ -67,7 +67,7 @@
 													<td><?= $row->nama_institusi ?></td>
 													<td><?= $row->status == 0 ? "Belum Diverifikasi" : "Sudah Terverifikasi"; ?></td>
 													<td>
-														<a href="<?= base_url('cek-data/'.$row->nik) ?>" class="btn btn-primary">Detail</a>
+														<a href="<?= base_url('cek-data/'.$row->id_verifikasi) ?>" class="btn btn-primary">Detail</a>
 													</td>
 												<?php endforeach; ?>
 											</tbody>
@@ -102,7 +102,7 @@
 													<td><?= $row->nama_institusi ?></td>
 													<td><?= $row->status == 0 ? "Belum Diverifikasi" : "Sudah Terverifikasi"; ?></td>
 													<td>
-														<a href="<?= base_url('cek-data/'.$row->nik) ?>" class="btn btn-primary">Detail</a>
+														<a href="<?= base_url('cek-data/'.$row->id_verifikasi) ?>" class="btn btn-primary">Detail</a>
 													</td>
 												<?php endforeach; ?>
 											</tbody>
@@ -137,7 +137,7 @@
 													<td><?= $row->nama_institusi ?></td>
 													<td><?= $row->status == 0 ? "Belum Diverifikasi" : "Sudah Terverifikasi"; ?></td>
 													<td>
-														<a href="<?= base_url('cek-data/'.$row->nik) ?>" class="btn btn-primary">Detail</a>
+														<a href="<?= base_url('cek-data/'.$row->id_verifikasi) ?>" class="btn btn-primary">Detail</a>
 													</td>
 												<?php endforeach; ?>
 											</tbody>

@@ -6,17 +6,10 @@ class Dashboard extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
+		checkLogin();
 		// checkAkses([0,1,2]);
 		$this->title = "Dashboard";
-		// $this->session = $this->session->userdata();
-		$this->session = array(
-			'id' => 1,
-			'username' => 'admin',
-			'name' => 'Admin',
-			'role' => 0,
-			'nik' => "1234567890"
-		);
+		$this->session = $this->session->userdata();
 	}
 
 	public function index()
@@ -24,7 +17,6 @@ class Dashboard extends CI_Controller {
 		$data['dataVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 1")->num_rows();	
 		$data['dataBelumVerif'] = $this->db->query("SELECT * FROM tbl_verifikasi WHERE status = 0")->num_rows();	
 		$data['title'] = $this->title;
-		// $data['session'] = (object)$this->session;
 		$data['session'] = (object)$this->session;
 		$this->load->view('template/header',$data);
 		$this->load->view('template/navbar',$data);

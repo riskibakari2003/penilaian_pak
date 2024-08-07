@@ -6,17 +6,10 @@ class Biodata extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// checkLogin();
+		checkLogin();
 		// checkAkses([0,1,2]);
 		$this->title = "Biodata";
-		// $this->session = $this->session->userdata();
-		$this->session = array(
-			'id' => 1,
-			'username' => 'admin',
-			'name' => 'Admin',
-			'role' => 0,
-			'nik' => "1234567890"
-		);
+		$this->session = $this->session->userdata();
 	}
 
 	public function index()
