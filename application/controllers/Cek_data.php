@@ -40,7 +40,12 @@ class Cek_data extends CI_Controller {
 	public function verifikasi($id)
 	{
 		$update = $this->M_penilaian->updateStatus($id);
-		$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Login Berhasi, Selamat Datang !');
+
+		if($update == true){
+			$this->session->set_flashdata('success', 'Data berhasil diverifikasi');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal diverifikasi');
+		}
 		redirect('cek-data');
 	}
 }

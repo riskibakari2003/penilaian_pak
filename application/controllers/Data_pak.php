@@ -27,12 +27,13 @@ class Data_pak extends CI_Controller {
 		
         $verifikasi = $this->db->where('nik', $nik)->where('status', 0)->get('tbl_verifikasi')->row();
         if (!$verifikasi) {
+			$this->session->set_flashdata('error', 'Data verifikasi tidak ditemukan');
             redirect('data_pak/index');
         }
 		
         $verifikasi_detail = $this->db->where('id_verifikasi_detail', $verifikasi->id_verifikasi)->get('tbl_verifikasi_detail')->row();
         if (!$verifikasi_detail || !$verifikasi_detail->id_data_pendukung) {
-			
+			$this->session->set_flashdata('error', 'Data pendukung tidak ditemukan');
             redirect('data_pak/index');
         }
 		
@@ -88,9 +89,13 @@ class Data_pak extends CI_Controller {
                     ];
                     $this->db->insert('tbl_berkas', $berkas_data);
                 } else {
-                    $error = $this->upload->display_errors();
+					$this->session->set_flashdata('error', $this->upload->display_errors());
+					redirect('data_pak/index');
                 }
-            }
+            }else{
+				$this->session->set_flashdata('error', 'File tidak boleh kosong');
+				redirect('data_pak/index');
+			}
         }
 		
         redirect('cek-data');

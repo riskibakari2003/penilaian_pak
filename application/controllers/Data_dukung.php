@@ -93,8 +93,12 @@ class Data_dukung extends CI_Controller {
 					];
 					$this->db->insert('tbl_berkas', $berkas_data);
 				} else {
-					$error = $this->upload->display_errors();
+					$this->session->set_flashdata('error', $this->upload->display_errors());
+					redirect('data-dukung');
 				}
+			}else{
+				$this->session->set_flashdata('error', 'File tidak boleh kosong');
+				redirect('data-dukung');
 			}
 		}
 		

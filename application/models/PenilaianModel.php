@@ -87,14 +87,25 @@ class PenilaianModel extends CI_Model
 		$this->db->where('id_verifikasi', $id);
 		$this->db->update('tbl_verifikasi', $data);
 
-		$verifikasi_detail = $this->db->get_where('tbl_verifikasi_detail', ['id_verifikasi_detail' => $id])->row();
+		if ($this->db->affected_rows() > 0) {
 
-		if ($verifikasi_detail) {
-			$this->db->where('Id_pendukung_or_pak', $verifikasi_detail->id_data_pendukung);
-			$this->db->or_where('Id_pendukung_or_pak', $verifikasi_detail->id_data_pak);
-			$this->db->update('tbl_berkas', ['status_berkas' => 1]);
+			$verifikasi_detail = $this->db->get_where('tbl_verifikasi_detail', ['id_verifikasi_detail' => $id])->row();
+	
+			if ($verifikasi_detail) {
+				$this->db->where('Id_pendukung_or_pak', $verifikasi_detail->id_data_pendukung);
+				$this->db->or_where('Id_pendukung_or_pak', $verifikasi_detail->id_data_pak);
+				$this->db->update('tbl_berkas', ['status_berkas' => 1]);
+
+				if ($this->db->affected_rows() > 0) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
 		}
-
-		return $this->db->affected_rows();
 	}
 }
