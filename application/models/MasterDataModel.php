@@ -19,16 +19,34 @@ class MasterDataModel extends CI_Model
 	public function insertMasterData($table, $data)
 	{
 		$this->db->insert($table, $data);
+
+		if ($this->db->affected_rows() > 0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	public function updateMasterData($table, $data, $id)
 	{
 		$this->db->where('id', $id)->update($table, $data);
+
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public function deleteMasterData($table, $data)
 	{
 		$this->db->where($data)->delete($table);
+
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public function getUser()
@@ -50,20 +68,43 @@ class MasterDataModel extends CI_Model
 	{
 		$this->db->where('nik', $nik);
 		$this->db->update('tbl_user', $data);
+
+		if($this->db->affected_rows() > 0){
+			$this->db->where('nik', $nik);
+			$this->db->update('tbl_biodata', $data);
+
+			if($this->db->affected_rows() > 0){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 		
-		$this->db->where('nik', $nik);
-		$this->db->update('tbl_biodata', $data);
 	}
 
 	public function updatePassword($nik, $data)
 	{
 		$this->db->where('nik', $nik);
 		$this->db->update('tbl_user', $data);
+
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public function deleteUserData($data)
 	{
 		$this->db->where($data)->delete('tbl_user');
 		$this->db->where($data)->delete('tbl_biodata');
+
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

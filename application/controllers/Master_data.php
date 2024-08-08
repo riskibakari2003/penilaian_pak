@@ -25,14 +25,26 @@ class Master_data extends CI_Controller {
 			'berkas_singkatan' => $this->input->post('singkatan_berkas'),
 			'id_jenis_berkas' => $this->input->post('jenis_berkas')
 		];
-		$this->M_masterdata->insertMasterData('mst_berkas_upload', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_berkas_upload', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/berkas');
 	}
 
 	public function berkas_delete($id)
 	{
 		$data = array('id_berkas_upload' => $id);
-		$this->M_masterdata->deleteMasterData('mst_berkas_upload', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_berkas_upload', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/berkas');
 	}
 	// End Berkas
@@ -50,14 +62,26 @@ class Master_data extends CI_Controller {
 		$data = [
 			'tahun_ajaran' => $this->input->post('tahun_ajaran'),
 		];
-		$this->M_masterdata->insertMasterData('mst_tahun_ajaran', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_tahun_ajaran', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/tahun-ajar');
 	}
 
 	public function tahun_ajaran_delete($id)
 	{
 		$data = array('id_tahun_ajaran' => $id);
-		$this->M_masterdata->deleteMasterData('mst_tahun_ajaran', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_tahun_ajaran', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/tahun-ajar');
 	}
 
@@ -77,14 +101,26 @@ class Master_data extends CI_Controller {
 			'nama_institusi' => $this->input->post('nama_institusi'),
 			'alamat_institusi' => $this->input->post('alamat_institusi'),
 		];
-		$this->M_masterdata->insertMasterData('mst_institusi', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_institusi', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/institusi');
 	}
 
 	public function institusi_delete($id)
 	{
 		$data = array('id_institusi' => $id);
-		$this->M_masterdata->deleteMasterData('mst_institusi', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_institusi', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/institusi');
 	}
 
@@ -103,14 +139,26 @@ class Master_data extends CI_Controller {
 		$data = [
 			'pangkat' => $this->input->post('pangkat'),
 		];
-		$this->M_masterdata->insertMasterData('mst_pangkat', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_pangkat', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/pangkat');
 	}
 
 	public function pangkat_delete($id)
 	{
 		$data = array('id_pangkat' => $id);
-		$this->M_masterdata->deleteMasterData('mst_pangkat', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_pangkat', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/pangkat');
 	}
 
@@ -129,14 +177,26 @@ class Master_data extends CI_Controller {
 		$data = [
 			'golongan' => $this->input->post('golongan'),
 		];
-		$this->M_masterdata->insertMasterData('mst_golongan', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_golongan', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/golongan');
 	}
 
 	public function golongan_delete($id)
 	{
 		$data = array('id_golongan' => $id);
-		$this->M_masterdata->deleteMasterData('mst_golongan', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_golongan', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/golongan');
 	}
 
@@ -155,14 +215,26 @@ class Master_data extends CI_Controller {
 		$data = [
 			'jabatan' => $this->input->post('jabatan'),
 		];
-		$this->M_masterdata->insertMasterData('mst_jabatan', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_jabatan', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
 		redirect('master/jabatan');
 	}
 
 	public function jabatan_delete($id)
 	{
 		$data = array('id_jabatan' => $id);
-		$this->M_masterdata->deleteMasterData('mst_jabatan', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_jabatan', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/jabatan');
 	}
 
@@ -181,14 +253,27 @@ class Master_data extends CI_Controller {
 		$data = [
 			'provinsi' => $this->input->post('provinsi'),
 		];
-		$this->M_masterdata->insertMasterData('mst_provinsi', $data);
+		$new = $this->M_masterdata->insertMasterData('mst_provinsi', $data);
+
+		if($new == true){
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
+
 		redirect('master/provinsi');
 	}
 
 	public function provinsi_delete($id)
 	{
 		$data = array('id_provinsi' => $id);
-		$this->M_masterdata->deleteMasterData('mst_provinsi', $data);
+		$delete = $this->M_masterdata->deleteMasterData('mst_provinsi', $data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/provinsi');
 	}
 
@@ -210,7 +295,13 @@ class Master_data extends CI_Controller {
 			'nik' => $this->input->post('new_nik')
 		];
 
-		$this->M_masterdata->updateUser($nik, $data);
+		$update = $this->M_masterdata->updateUser($nik, $data);
+
+		if($update == true){
+			$this->session->set_flashdata('success', 'Data berhasil diubah');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal diubah');
+		}
 		redirect('master/user');
 	}
 
@@ -220,14 +311,26 @@ class Master_data extends CI_Controller {
 			'password' => MD5('Default123')
 		];
 
-		$this->M_masterdata->updatePassword($nik, $data);
+		$pass = $this->M_masterdata->updatePassword($nik, $data);
+
+		if($pass == true){
+			$this->session->set_flashdata('success', 'Password berhasil diubah');
+		} else {
+			$this->session->set_flashdata('error', 'Password gagal diubah');
+		}
 		redirect('master/user');
 	}
 
 	public function user_delete($nik)
 	{
 		$data = array('nik' => $nik);
-		$this->M_masterdata->deleteUserData($data);
+		$delete = $this->M_masterdata->deleteUserData($data);
+
+		if($delete == true){
+			$this->session->set_flashdata('success', 'Data berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal dihapus');
+		}
 		redirect('master/user');
 	}
 
