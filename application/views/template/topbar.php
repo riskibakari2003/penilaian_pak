@@ -14,7 +14,7 @@
           <img src="<?= base_url('public/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $session->name; ?></a>
+          <a href="#" class="d-block"><?= $this->session->userdata('name'); ?></a>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
                     </a>
                 </li>
 
-				<?php if ($session->role != 2 && $session->role != 0) : ?>
+				<?php if ($this->session->userdata('role') != 2 && $this->session->userdata('role') != 0) : ?>
 				<li class="nav-item">
 						<a href="<?= base_url('biodata'); ?>" class="nav-link  <?= $title == 'Biodata' ? 'active' : ''; ?>">
 								<i class="nav-icon fas fa-user"></i>
@@ -61,15 +61,15 @@
 				<?php endif; ?>
 
 				<li class="nav-item">
-						<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == ($session->role == 1 ? 'Cek Data' : 'Verifikasi Berkas') ? 'active' : ''; ?>">
-								<i class="nav-icon fas <?= $session->role == 1 ? 'fa-book' : 'fa-check'; ?>"></i>
+						<a href="<?= base_url('cek-data'); ?>" class="nav-link  <?= $title == ($this->session->userdata('role') == 1 ? 'Cek Data' : 'Verifikasi Berkas') ? 'active' : ''; ?>">
+								<i class="nav-icon fas <?= $this->session->userdata('role') == 1 ? 'fa-book' : 'fa-check'; ?>"></i>
 								<p>
-									<?= $session->role == 1 ? "Cek Data" : "Verifikasi Berkas"; ?>
+									<?= $this->session->userdata('role') == 1 ? "Cek Data" : "Verifikasi Berkas"; ?>
 								</p>
 						</a>
 				</li>
 
-				<?php if($session->role == 0): ?>
+				<?php if($this->session->userdata('role') == 0): ?>
 
 				<li class="nav-item">
 						<a href="<?= base_url('master/user'); ?>" class="nav-link  <?= $title == 'User Management' ? 'active' : ''; ?>">

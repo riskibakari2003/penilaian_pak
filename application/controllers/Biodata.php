@@ -9,20 +9,18 @@ class Biodata extends CI_Controller {
 		checkLogin();
 		checkAkses(1);
 		$this->title = "Biodata";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{	
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 		$data['provinsi'] = $this->M_masterdata->getMasterData('mst_provinsi');
 		$data['pangkat'] = $this->M_masterdata->getMasterData('mst_pangkat');
 		$data['golongan'] = $this->M_masterdata->getMasterData('mst_golongan');
 		$data['institusi'] = $this->M_masterdata->getMasterData('mst_institusi');
 		$data['jabatan'] = $this->M_masterdata->getMasterData('mst_jabatan');
 		$data['tahun_ajaran'] = $this->M_masterdata->getMasterData('mst_tahun_ajaran');
-		$data['biodata'] = $this->db->where('nik',$this->session['nik'])->get('tbl_biodata')->row();
+		$data['biodata'] = $this->db->where('nik',$this->session->userdata('nik'))->get('tbl_biodata')->row();
 		$this->load->view('main/biodata/index',$data);
 	}
 
@@ -42,6 +40,8 @@ class Biodata extends CI_Controller {
 			'id_tahun_ajaran' => $this->input->post('tahun_ajaran')
 		];
 		$this->db->where('nik',$nik)->update('tbl_biodata',$data);
+		
+		$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Biodata Berhasil Diperbaharui !');
 		redirect('data-dukung');
 	}
 }

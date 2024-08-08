@@ -10,40 +10,37 @@ class Cek_data extends CI_Controller {
 		checkAkses([0,1,2]);
 		$this->title_one = "Cek Data";
 		$this->title_two = "Verifikasi Berkas";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
-		if ($this->session['role'] == 1) {
-			checkEmptyBiodata($this->session['nik']);
+		if ($this->session->userdata('role') == 1) {
+			checkEmptyBiodata($this->session->userdata('nik'));
 			$data['title'] = $this->title_one;
-			$data['penilaian'] = $this->M_penilaian->getDataPenilaianByNik($this->session['nik']);
+			$data['penilaian'] = $this->M_penilaian->getDataPenilaianByNik($this->session->userdata('nik'));
 		} else {
 			$data['title'] = $this->title_two;
 			$data['penilaianSudah'] = $this->M_penilaian->getDataPenilaianSudah();
 			$data['penilaianBelum'] = $this->M_penilaian->getDataPenilaianBelum();
 		}
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/cek_data/index',$data);
 	}
 
 	public function show($id)
 	{
-		if ($this->session['role'] == 1) {
+		if ($this->session->userdata('role') == 1) {
 			$data['title'] = $this->title_one;
 		} else {
 			$data['title'] = $this->title_two;
 		}
 		$data['penilaian'] = $this->M_penilaian->getDataPenilaianById($id);
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/cek_data/show',$data);
 	}
 
 	public function verifikasi($id)
 	{
 		$update = $this->M_penilaian->updateStatus($id);
-
+		$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Login Berhasi, Selamat Datang !');
 		redirect('cek-data');
 	}
 }

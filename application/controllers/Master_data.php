@@ -8,7 +8,6 @@ class Master_data extends CI_Controller {
 		parent::__construct();
 		checkLogin();
 		checkAkses(0);
-		$this->session = $this->session->userdata();
 	}
 
 	// Berkas
@@ -16,7 +15,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Berkas Upload";
 		$data['berkas'] = $this->M_masterdata->getMasterData('mst_berkas_upload');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/berkas/index',$data);
 	}
 
@@ -44,7 +42,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Tahun Ajaran";
 		$data['tahun_ajaran'] = $this->M_masterdata->getMasterData('mst_tahun_ajaran');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/tahun_ajaran/index',$data);
 	}
 
@@ -71,7 +68,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data Institusi";
 		$data['institusi'] = $this->M_masterdata->getMasterData('mst_institusi');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/institusi/index',$data);
 	}
 
@@ -99,7 +95,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data Pangkat";
 		$data['pangkat'] = $this->M_masterdata->getMasterData('mst_pangkat');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/pangkat/index',$data);
 	}
 
@@ -126,7 +121,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data Golongan";
 		$data['golongan'] = $this->M_masterdata->getMasterData('mst_golongan');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/golongan/index',$data);
 	}
 
@@ -153,7 +147,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data Jabatan";
 		$data['jabatan'] = $this->M_masterdata->getMasterData('mst_jabatan');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/jabatan/index',$data);
 	}
 
@@ -180,7 +173,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data Provinsi";
 		$data['provinsi'] = $this->M_masterdata->getMasterData('mst_provinsi');
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/provinsi/index',$data);
 	}
 
@@ -207,7 +199,6 @@ class Master_data extends CI_Controller {
 	{
 		$data['title'] = "Master Data User";
 		$data['user'] = $this->M_masterdata->getUser();
-		$data['session'] = (object)$this->session;
 		$this->load->view('main/masterdata/user/index',$data);
 	}
 

@@ -33,7 +33,7 @@
 		</div>
 		<hr>
 		<br>
-		<?php if($session->role == 0 || $session->role == 2 ){ ?>
+		<?php if($this->session->userdata('role') == 0 || $this->session->userdata('role') == 2 ){ ?>
         <div class="row">
           <div class="col-lg-6 col-6">
             <!-- small box -->

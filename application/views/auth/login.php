@@ -72,15 +72,21 @@
 <script src="<?= base_url('public/plugins/toastr/toastr.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('public/dist/js/adminlte.min.js') ?>"></script>
-<script>
-    <?php if ($this->session->flashdata('login_error')): ?>
+		<?php if($this->session->flashdata('success')): ?>
         <script>
-            toastr.error('<?= $this->session->flashdata('login_error'); ?>', 'Error', {
+            toastr.success('<?= $this->session->flashdata('success'); ?>', 'Success', {
+                "progressBar": true,
+                "timeOut": 3000
+            });
+        </script>
+		<?php endif; ?>
+    <?php if ($this->session->flashdata('error')): ?>
+        <script>
+            toastr.error('<?= $this->session->flashdata('error'); ?>', 'Error', {
                 "progressBar": true,
                 "timeOut": 3000
             });
         </script>
     <?php endif; ?>
-</script>
 </body>
 </html>

@@ -10,13 +10,11 @@ class Data_dukung extends CI_Controller {
 		checkEmptyBiodata($this->session->userdata('nik'));
 		checkAkses(1);
 		$this->title = "Data Dukung";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 		$data['file'] = $this->db->where('id_jenis_berkas', 1)->get('mst_berkas_upload')->result();
 		$this->load->view('main/data_dukung/index',$data);
 	}
@@ -25,7 +23,7 @@ class Data_dukung extends CI_Controller {
 	{
 		$this->load->library('upload');
 		
-		$nik = $this->session['nik'];
+		$nik = $this->session->userdata('nik');
 		$no_surat = $this->input->post('no_surar');
 		$tgl_surat = $this->input->post('tgl_surat');
 		

@@ -10,13 +10,11 @@ class Data_pak extends CI_Controller {
 		checkEmptyBiodata($this->session->userdata('nik'));
 		checkAkses(1);
 		$this->title = "Data PAK";
-		$this->session = $this->session->userdata();
 	}
 
 	public function index()
 	{
 		$data['title'] = $this->title;
-		$data['session'] = (object)$this->session;
 		$data['file'] = $this->db->where('id_jenis_berkas', 2)->get('mst_berkas_upload')->result();
 		$this->load->view('main/data_pak/index',$data);
 	}
@@ -25,7 +23,7 @@ class Data_pak extends CI_Controller {
     {
         $this->load->library('upload');
         
-        $nik = $this->session['nik'];
+        $nik = $this->session->userdata('nik');
 		
         $verifikasi = $this->db->where('nik', $nik)->where('status', 0)->get('tbl_verifikasi')->row();
         if (!$verifikasi) {

@@ -67,13 +67,16 @@
 <script src="<?= base_url('public/plugins/dropzone/min/dropzone.min.js') ?>"></script>
 <!-- bs-custom-file-input -->
 <script src="<?= base_url('public/plugins/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
+<!-- SweetAlert2 -->
+<script src="<?= base_url('public/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
+<script src="<?= base_url('public/plugins/toastr/toastr.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('public/dist/js/adminlte.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('public/dist/js/demo.js') ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url('public/dist/js/pages/dashboard.js') ?>"></script>
-	<?php if (is_object($this->session) && $this->session->flashdata('error')): ?>
+	<?php if ($this->session->flashdata('error')): ?>
         <script>
             toastr.error('<?= $this->session->flashdata('error'); ?>', 'Error', {
                 "progressBar": true,
@@ -82,7 +85,7 @@
         </script>
     <?php endif; ?>
 
-    <?php if (is_object($this->session) && $this->session->flashdata('success')): ?>
+    <?php if ($this->session->flashdata('success')): ?>
         <script>
             toastr.success('<?= $this->session->flashdata('success'); ?>', 'Success', {
                 "progressBar": true,
@@ -90,6 +93,7 @@
             });
         </script>
     <?php endif; ?>
+	
 	<?php if (isset($footer_js)) echo $footer_js; ?>
 </body>
 </html>

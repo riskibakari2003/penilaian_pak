@@ -26,7 +26,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
 
-				<?php if ($session->role != 1) : ?>
+				<?php if ($this->session->userdata('role') != 1) : ?>
         <div class="row mb-3">
             <div class="col-md-12">
                 <div class="btn-container">
@@ -39,7 +39,7 @@
 
 				 <div class="row">
 					 <div class="col-md-12">
-						<?php if ($session->role == 1) : ?>
+						<?php if ($this->session->userdata('role') == 1) : ?>
 							<div class="card">
 								<div class="card-body">
 									<table id="tblcekdata" class="table table-bordered table-striped">

@@ -14,7 +14,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="<?= base_url('cek-data') ?>"><?= $title ?></a></li>
-              <li class="breadcrumb-item active"><?= $session->role == 1 ? "Detail Data" : "Verifikasi Berkas"; ?></li>
+              <li class="breadcrumb-item active"><?= $this->session->userdata('role') == 1 ? "Detail Data" : "Verifikasi Berkas"; ?></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -34,7 +34,7 @@
 							<button id="btnSelesai" onclick="tblSelesai()" class="btn btn-secondary">Berkas PAK</button>
 						</div>
 					</div>
-					<?php if ($session->role != 1) : ?>
+					<?php if ($this->session->userdata('role') != 1) : ?>
 						<?php if ($penilaian->verifikasi->status == 0) : ?>
 							<div class="col-md-2">
 								<div class="btn-container">

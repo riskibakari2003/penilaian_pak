@@ -28,6 +28,7 @@ class Auth extends CI_Controller {
 			$data = $this->M_auth->login();
 	
 			if ($data == true) {
+				$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Login Berhasi, Selamat Datang !');
 				redirect('dashboard');
 			}else {
 				$this->session->set_flashdata('error', '<strong>ERROR!!!</strong> Username atau password salah.');
@@ -70,7 +71,7 @@ class Auth extends CI_Controller {
 		);
 
 		$this->session->unset_userdata($data);
-
+		$this->session->set_flashdata('success', '<strong>SUCCESS!!!</strong> Berhasil keluar dari sistem.');
 		redirect('login');
 	}
 }
