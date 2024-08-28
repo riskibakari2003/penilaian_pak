@@ -15,7 +15,6 @@ class PenilaianModel extends CI_Model
 						->join('mst_tahun_ajaran h', 'b.id_tahun_ajaran = h.id_tahun_ajaran', 'left')
 						->where('a.nik', $nik)
 						->get();	
-
 		return $query->result();
     }
 

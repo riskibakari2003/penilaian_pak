@@ -152,7 +152,7 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<a href="../../index.html" class="nav-link">
+								<a href="<?= base_url('master_data/periode_penilaian'); ?>" class="nav-link <?= $title == 'Periode Penilaian' ? 'active' : ''; ?>">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Periode Penilaian</p>
 								</a>
