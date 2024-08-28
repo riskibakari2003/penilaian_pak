@@ -280,13 +280,6 @@ class Master_data extends CI_Controller
 
 	// End Provinsi
 
-	// Periode penilaian
-	public function periode_penilaian()
-	{
-		$data['title'] = "Periode Penilaian";
-		$data['provinsi'] = $this->M_masterdata->getMasterData('mst_provinsi');
-		$this->load->view('main/masterdata/periode_penilaian/index', $data);
-	}
 
 	// User
 	public function user()
@@ -344,4 +337,32 @@ class Master_data extends CI_Controller
 	}
 
 	// End User
+
+	// Periode penilaian
+	public function periode_penilaian()
+	{
+		$data['title'] = "Periode Penilaian";
+		$data['periode'] = $this->M_masterdata->getMasterData('tbl_periode_penilaian');
+		$this->load->view('main/masterdata/periode_penilaian/index', $data);
+	}
+
+	public function periode_store()
+	{
+		$data = [
+			'tgl_periode' => $this->input->post('tgl_periode'),
+			'tgl_dibuka' => $this->input->post('tgl_dibuka'),
+			'tgl_ditutup' => $this->input->post('tgl_ditutup'),
+
+		];
+		$new = $this->M_masterdata->insertMasterData('tbl_periode_penilaian', $data);
+		
+
+		if ($new == true) {
+			$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		} else {
+			$this->session->set_flashdata('error', 'Data gagal ditambahkan');
+		}
+
+		redirect('master/periode_penilaian');
+	}
 }

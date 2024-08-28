@@ -129,6 +129,6 @@ $route['cek-data/verifikasi/(:any)'] = 'cek_data/verifikasi/$1';
 // End Cek PAK
 
 // Periode penilaian 
-$route['master/provinsi'] = 'master_data/periode_penilaian';
-// $route['master/provinsi/new'] = 'master_data/provinsi_new';
+$route['master/periode_penilaian'] = 'master_data/periode_penilaian';
+$route['master/periode_penilaian/new'] = 'master_data/periode_store';
 // $route['master/provinsi/delete/(:any)'] = 'master_data/provinsi_delete/$1';

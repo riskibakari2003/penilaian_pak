@@ -33,17 +33,17 @@
                             <h3 class="card-title">New Periode Penilaian</h3>
                         </div>
 
-                        <form action="<?= base_url('master/provinsi/new') ?>" method="POST">
+                        <form action="<?= base_url('master/periode_penilaian/new') ?>" method="POST">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="provinsi">Tanggal Periode</label>
-                                    <input type="text" class="form-control" id="provinsi" placeholder="Masukkan Tanggal Periode" name="provinsi">
+                                    <input type="text" class="form-control" id="provinsi" placeholder="Masukkan Tanggal Periode" name="tgl_periode">
                                     <br>
                                     <label for="provinsi">Tanggal Dibuka</label>
-                                    <input type="date" class="form-control" id="provinsi" placeholder="Nama Provinsi" name="provinsi">
+                                    <input type="date" class="form-control" id="provinsi" placeholder="Nama Provinsi" name="tgl_dibuka">
                                     <br>
                                     <label for="provinsi">Tanggal Ditutup</label>
-                                    <input type="date" class="form-control" id="provinsi" placeholder="Nama Provinsi" name="provinsi">
+                                    <input type="date" class="form-control" id="provinsi" placeholder="Nama Provinsi" name="tgl_ditutup">
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -69,14 +69,14 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($provinsi as $row): ?>
+                                    foreach ($periode as $row): ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?= $row->tgl_periode; ?></td>
+                                            <td><?= $row->tgl_dibuka; ?></td>
+                                            <td><?= $row->tgl_ditutup; ?></td>
                                             <td>
-                                                <a href="<?= base_url('master/provinsi/delete/' . $row->id_provinsi); ?>" class="btn btn-primary btn-sm">Simpan</a>
+                                                <a href="<?= base_url('master/periode_penilaian/delete/' . $row->id); ?>" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
